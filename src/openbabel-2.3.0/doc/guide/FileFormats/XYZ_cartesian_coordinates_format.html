@@ -1,0 +1,176 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>XYZ cartesian coordinates format (xyz) &mdash; Open Babel v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open Babel v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Utility" href="Utility.html" />
+    <link rel="next" title="Other cheminformatics" href="Other_cheminformatics.html" />
+    <link rel="prev" title="Title format (txt)" href="Title_format.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Other_cheminformatics.html" title="Other cheminformatics"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Title_format.html" title="Title format (txt)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="Overview.html" >Supported File Formats and Options</a> &raquo;</li>
+          <li><a href="Utility.html" accesskey="U">Utility</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">XYZ cartesian coordinates format (xyz)</a><ul>
+<li><a class="reference internal" href="#read-options">Read Options</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Title_format.html"
+                        title="previous chapter">Title format (txt)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Other_cheminformatics.html"
+                        title="next chapter">Other cheminformatics</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/FileFormats/XYZ_cartesian_coordinates_format.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="xyz-cartesian-coordinates-format-xyz">
+<span id="xyz-cartesian-coordinates-format"></span><h1>XYZ cartesian coordinates format (xyz)<a class="headerlink" href="#xyz-cartesian-coordinates-format-xyz" title="Permalink to this headline">¶</a></h1>
+<p><strong>A generic coordinate format</strong></p>
+<p>The &#8220;XYZ&#8221; chemical file format is widely supported by many programs, although no
+formal specification has been published. Consequently, Open Babel attempts to be
+extremely flexible in parsing XYZ format files. Similar formats include Tinker XYZ
+and UniChem XYZ which differ slightly in the format of the files. (Notably, UniChem XYZ
+uses the atomic number rather than element symbol for the first column.)</p>
+<ul class="simple">
+<li>Line one of the file contains the number of atoms in the file.</li>
+<li>Line two of the file contains a title, comment, or filename.</li>
+</ul>
+<p>Any remaining lines are parsed for atom information. Lines start with the element
+symbol, followed by X, Y, and Z coordinates in angstroms separated by whitespace.</p>
+<p>Multiple molecules / frames can be contained within one file.</p>
+<p>On <strong>output</strong>, the first line written is the number of atoms in the molecule
+(warning - the number of digits is limited to three for some programs,
+e.g. Maestro). Line two is the title of the molecule or the filename if
+no title is defined. Remaining lines define the atoms in the file. The
+first column is the atomic symbol (right-aligned on the third character),
+followed by the XYZ coordinates in &#8220;10.5&#8221; format, in angstroms. This means
+that all coordinates are printed with five decimal places.</p>
+<p>Example:</p>
+<div class="highlight-python"><pre>12
+benzene example
+  C        0.00000        1.40272        0.00000
+  H        0.00000        2.49029        0.00000
+  C       -1.21479        0.70136        0.00000
+  H       -2.15666        1.24515        0.00000
+  C       -1.21479       -0.70136        0.00000
+  H       -2.15666       -1.24515        0.00000
+  C        0.00000       -1.40272        0.00000
+  H        0.00000       -2.49029        0.00000
+  C        1.21479       -0.70136        0.00000
+  H        2.15666       -1.24515        0.00000
+  C        1.21479        0.70136        0.00000
+  H        2.15666        1.24515        0.00000</pre>
+</div>
+<div class="section" id="read-options">
+<h2>Read Options<a class="headerlink" href="#read-options" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">s</span></kbd></td>
+<td><em>Output single bonds only</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">b</span></kbd></td>
+<td><em>Disable bonding entirely</em></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Other_cheminformatics.html" title="Other cheminformatics"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Title_format.html" title="Title format (txt)"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="Overview.html" >Supported File Formats and Options</a> &raquo;</li>
+          <li><a href="Utility.html" >Utility</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Open Babel community.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

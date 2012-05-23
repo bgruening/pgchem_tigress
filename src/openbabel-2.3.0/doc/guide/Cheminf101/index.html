@@ -1,0 +1,148 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Cheminformatics 101 &mdash; Open Babel v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open Babel v2.3.0 documentation" href="../index.html" />
+    <link rel="next" title="Cheminformatics Basics" href="basics.html" />
+    <link rel="prev" title="Ruby" href="../UseTheLibrary/Ruby.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="basics.html" title="Cheminformatics Basics"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../UseTheLibrary/Ruby.html" title="Ruby"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../UseTheLibrary/Ruby.html"
+                        title="previous chapter">Ruby</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="basics.html"
+                        title="next chapter">Cheminformatics Basics</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/Cheminf101/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="cheminformatics-101">
+<h1>Cheminformatics 101<a class="headerlink" href="#cheminformatics-101" title="Permalink to this headline">¶</a></h1>
+<p class="centered">
+<strong><strong>An introduction to the computer science and chemistry of chemical information systems</strong></strong></p><p class="centered">
+<strong>Copyright © 2009 by <strong>Craig A. James</strong>, <em>eMolecules, Inc.</em></strong></p><p>The original version of this introduction to cheminformatics can be found on the <a class="reference external" href="http://www.emolecules.com/doc/cheminformatics-101.php">eMolecules website</a>. It is included here with the permission of the author.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Cheminformatics Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="basics.html#what-is-cheminformatics">What is Cheminformatics?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basics.html#how-is-cheminformatics-different">How is Cheminformatics Different?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="represent.html">Representing Molecules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="represent.html#what-is-a-molecule">What is a Molecule?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="represent.html#older-systems-connection-tables">Older systems: Connection Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="represent.html#line-notations-inchi-smiles-wln-and-others">Line Notations: InChI, SMILES, WLN and others</a></li>
+<li class="toctree-l2"><a class="reference internal" href="represent.html#id1">Canonicalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="represent.html#line-notation-versus-connection-tables-a-practical-matter">Line Notation versus Connection Tables: A practical matter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="represent.html#query-languages-smarts">Query Languages: SMARTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="represent.html#iupac-names-trade-names-common-names">IUPAC Names, Trade Names, Common Names</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="search.html">Substructure Searching with Indexes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="search.html#what-is-indexing">What is Indexing?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search.html#indexes-for-chemicals">Indexes for Chemicals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search.html#np-complete-a-little-about-computability">NP-Complete - A Little about Computability</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="similarity.html">Molecular Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="registration.html">Chemical Registration Systems</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="basics.html" title="Cheminformatics Basics"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../UseTheLibrary/Ruby.html" title="Ruby"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Open Babel community.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

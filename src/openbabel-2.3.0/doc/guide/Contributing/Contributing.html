@@ -1,0 +1,162 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Contributing to Open Babel &mdash; Open Babel v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open Babel v2.3.0 documentation" href="../index.html" />
+    <link rel="next" title="Overview" href="Overview.html" />
+    <link rel="prev" title="Modular design of code base" href="../Features/Design.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Overview.html" title="Overview"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Features/Design.html" title="Modular design of code base"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../Features/Design.html"
+                        title="previous chapter">Modular design of code base</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Overview.html"
+                        title="next chapter">Overview</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/Contributing/Contributing.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="contributing-to-open-babel">
+<h1>Contributing to Open Babel<a class="headerlink" href="#contributing-to-open-babel" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Overview.html#provide-input">Provide input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Overview.html#spread-the-word">Spread the word</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Overview.html#code-a-storm">Code a storm</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DevBestPractices.html">Developing Open Babel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DevBestPractices.html#grabbing-the-development-code">Grabbing the Development Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DevBestPractices.html#monitoring-progress">Monitoring Progress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DevBestPractices.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DevBestPractices.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DevBestPractices.html#code-formatting">Code Formatting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DevBestPractices.html#error-handling">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DevBestPractices.html#patches-and-changesets">Patches and Changesets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DevBestPractices.html#the-changelog">The ChangeLog</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DeveloperResources.html">Developer Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VersionControl.html">Version Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="VersionControl.html#keeping-up-to-date-with-the-latest-open-babel-code-with-subversion">Keeping up to date with the latest Open Babel code with Subversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VersionControl.html#useful-subversion-commands">Useful Subversion Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Documentation.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Documentation.html#adding-new-code">Adding New Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Documentation.html#modifying-old-code">Modifying Old Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Documentation.html#changelog-entries">ChangeLog entries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Documentation.html#user-documentation">User documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Testing.html">Testing the Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Testing.html#types-of-tests">Types of Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Testing.html#unix-linux-mac-os-x">UNIX/Linux/Mac OS X</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Testing.html#memory-checkers">Memory Checkers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Testing.html#code-profiling">Code Profiling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Testing.html#c-unscrambler">C++ Unscrambler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Testing.html#windows">Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SoftwareArchaeology.html">Software Archaeology</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="SoftwareArchaeology.html#documentation-and-code-readability">Documentation and Code Readability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SoftwareArchaeology.html#code-maintenance">Code Maintenance</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Overview.html" title="Overview"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Features/Design.html" title="Modular design of code base"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Open Babel community.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

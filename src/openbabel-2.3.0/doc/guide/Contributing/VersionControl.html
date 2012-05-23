@@ -1,0 +1,199 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Version Control &mdash; Open Babel v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open Babel v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Contributing to Open Babel" href="Contributing.html" />
+    <link rel="next" title="Documentation" href="Documentation.html" />
+    <link rel="prev" title="Developer Resources" href="DeveloperResources.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Documentation.html" title="Documentation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="DeveloperResources.html" title="Developer Resources"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="Contributing.html" accesskey="U">Contributing to Open Babel</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Version Control</a><ul>
+<li><a class="reference internal" href="#keeping-up-to-date-with-the-latest-open-babel-code-with-subversion">Keeping up to date with the latest Open Babel code with Subversion</a></li>
+<li><a class="reference internal" href="#useful-subversion-commands">Useful Subversion Commands</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="DeveloperResources.html"
+                        title="previous chapter">Developer Resources</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Documentation.html"
+                        title="next chapter">Documentation</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/Contributing/VersionControl.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="version-control">
+<span id="id1"></span><h1>Version Control<a class="headerlink" href="#version-control" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://subversion.tigris.org/">Subversion</a>  (or SVN) is the name of the project used to maintain the Open Babel version control repository. There are many clients for Subversion, including command-line and GUI applications (for example, on Windows, <a class="reference external" href="http://tortoisesvn.tigris.org/">TortoiseSVN</a>). For more links, see the Subversion <a class="reference external" href="http://subversion.tigris.org/links.html">website</a>. There&#8217;s also a great book about using Subversion, which is available <a class="reference external" href="http://svnbook.red-bean.com/">online</a>.</p>
+<div class="section" id="keeping-up-to-date-with-the-latest-open-babel-code-with-subversion">
+<h2>Keeping up to date with the latest Open Babel code with Subversion<a class="headerlink" href="#keeping-up-to-date-with-the-latest-open-babel-code-with-subversion" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Check out the latest development version:</p>
+<div class="highlight-python"><pre>svn co https://openbabel.svn.sourceforge.net/svnroot/openbabel/openbabel/trunk openbabel</pre>
+</div>
+</li>
+</ol>
+<p>This creates a directory called <tt class="file docutils literal"><span class="pre">openbabel</span></tt>, which contains the latest source code from OpenBabel.</p>
+<ol class="arabic" start="2">
+<li><p class="first">Configure and compile this using CMake, as described on the CMake page.</p>
+</li>
+<li><p class="first">After some time passes, and you want the latest bug fixes or new features, you may want to update your source code. To do this, go into the <tt class="file docutils literal"><span class="pre">openbabel</span></tt> directory you created above, and type:</p>
+<div class="highlight-python"><pre>svn update</pre>
+</div>
+</li>
+<li><p class="first">Do step (2) again.</p>
+</li>
+<li><p class="first">If, after updating, the compilation fails please report it to the Open Babel mailing list. In the meanwhile, if you want to go back to a particular revision (that is, if you don&#8217;t want to use the latest one), just use <tt class="docutils literal"><span class="pre">svn</span> <span class="pre">info</span></tt> to find the number of the current revision, and update to an earlier revision either by date or by revision number:</p>
+<div class="highlight-python"><pre>$ svn info
+...
+Revision: 1740
+...
+$ svn update -r 1735
+(or)
+$ svn update -r {2007-01-01}</pre>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="useful-subversion-commands">
+<h2>Useful Subversion Commands<a class="headerlink" href="#useful-subversion-commands" title="Permalink to this headline">¶</a></h2>
+<p>The following table suggests Subversion commands useful for Open Babel contributors. More documentation can be found in the Official SVN Manual. In the following examples, <em>repo</em> should be replaced by the full URL to the Open Babel subversion repository (<a class="reference external" href="https://openbabel.svn.sourceforge.net/svnroot/openbabel/openbabel">https://openbabel.svn.sourceforge.net/svnroot/openbabel/openbabel</a>).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Subversion Command</th>
+<th class="head">What it does</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal"><span class="pre">svn</span> <span class="pre">co</span> <span class="pre">repo/trunk</span> <span class="pre">openbabel</span></tt></td>
+<td>Check out the latest development version of Open Babel</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">svn</span> <span class="pre">update</span></tt></td>
+<td>Update the current directory and subdirectories with any new changes</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">svn</span> <span class="pre">add</span> <span class="pre">filename</span></tt></td>
+<td>Add the file <tt class="file docutils literal"><span class="pre">filename</span></tt> to the repository</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">svn</span> <span class="pre">remove</span> <span class="pre">filename</span></tt></td>
+<td>Remove the file <tt class="file docutils literal"><span class="pre">filename</span></tt> (before a commit)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">svn</span> <span class="pre">mv</span> <span class="pre">filename</span> <span class="pre">newname</span></tt></td>
+<td>Move/rename the file <tt class="file docutils literal"><span class="pre">filename</span></tt> to <tt class="file docutils literal"><span class="pre">newname</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">svn</span> <span class="pre">commit</span></tt></td>
+<td>Commit the changes to the central repository</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">svn</span> <span class="pre">diff</span></tt></td>
+<td>Return a diff set of differences between the working copy and the central repository</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">svn</span> <span class="pre">switch</span> <span class="pre">repo/branches/foo</span></tt></td>
+<td>Switch the current working copy to a branch named foo</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">svn</span> <span class="pre">copy</span> <span class="pre">repo/branches/foo</span></tt></td>
+<td>Create a branch named foo with the current working copy</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Documentation.html" title="Documentation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="DeveloperResources.html" title="Developer Resources"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="Contributing.html" >Contributing to Open Babel</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Open Babel community.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

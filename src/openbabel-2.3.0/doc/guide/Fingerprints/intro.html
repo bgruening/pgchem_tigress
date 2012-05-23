@@ -1,0 +1,162 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Molecular fingerprints and similarity searching &mdash; Open Babel v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open Babel v2.3.0 documentation" href="../index.html" />
+    <link rel="next" title="Fingerprint format" href="fingerprints.html" />
+    <link rel="prev" title="The Open Babel GUI" href="../GUI/GUI.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="fingerprints.html" title="Fingerprint format"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../GUI/GUI.html" title="The Open Babel GUI"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../GUI/GUI.html"
+                        title="previous chapter">The Open Babel GUI</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="fingerprints.html"
+                        title="next chapter">Fingerprint format</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/Fingerprints/intro.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="molecular-fingerprints-and-similarity-searching">
+<span id="fingerprints"></span><h1>Molecular fingerprints and similarity searching<a class="headerlink" href="#molecular-fingerprints-and-similarity-searching" title="Permalink to this headline">¶</a></h1>
+<p>Molecular fingerprints are a way of encoding the structure of a molecule. The most common type of fingerprint is a series of binary digits (bits) that represent the presence or absence of particular substructures in the molecule. Comparing fingerprints allows you to determine the similarity between two molecules, to find matches to a query substructure, etc.</p>
+<p>Open Babel provides several fingerprints of different types:</p>
+<ul class="simple">
+<li><a class="reference internal" href="fingerprints.html#fingerprint-format-details"><em>Fingerprint format</em></a>: the path-based fingerprint FP2; substructure based fingerprints FP3, FP4 and MACCS; user-defined substructures</li>
+<li><a class="reference internal" href="../FileFormats/Multilevel_Neighborhoods_of_Atoms_(MNA).html#multilevel-neighborhoods-of-atoms-mna"><em>Multilevel Neighborhoods of Atoms (MNA) (mna)</em></a>: a circular fingerprint</li>
+<li><a class="reference internal" href="../FileFormats/MolPrint2D_format.html#molprint2d-format"><em>MolPrint2D format (mpd)</em></a>: a circular fingerprint</li>
+<li><a class="reference internal" href="spectrophore.html#spectrophores"><em>Spectrophores™</em></a>: a fingerprint that encodes the 3D structure of a molecule</li>
+</ul>
+<p>The next two sections describe the <em>Fingerprint format</em> and <em>Spectrophores</em> in depth. For the others, see the relevant sections listed above.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="fingerprints.html">Fingerprint format</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fingerprints.html#similarity-searching">Similarity searching</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fingerprints.html#small-datasets">Small datasets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fingerprints.html#large-datasets">Large datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fingerprints.html#substructure-searching">Substructure searching</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fingerprints.html#id1">Small datasets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fingerprints.html#id2">Large datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fingerprints.html#case-study-search-chembldb">Case study: Search ChEMBLdb</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spectrophore.html">Spectrophores™</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spectrophore.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spectrophore.html#obspectrophore">obspectrophore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spectrophore.html#implementation">Implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spectrophore.html#atomic-properties">Atomic properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spectrophore.html#interaction-between-the-atoms-and-cage-points">Interaction between the atoms and cage points</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spectrophore.html#choice-of-parameters">Choice of Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spectrophore.html#accuracy">Accuracy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spectrophore.html#resolution">Resolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spectrophore.html#stereospecificity">Stereospecificity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spectrophore.html#normalisation">Normalisation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="fingerprints.html" title="Fingerprint format"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../GUI/GUI.html" title="The Open Babel GUI"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Open Babel community.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

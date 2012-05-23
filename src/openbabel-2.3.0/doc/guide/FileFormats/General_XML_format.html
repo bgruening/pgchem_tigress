@@ -1,0 +1,153 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>General XML format (xml) &mdash; Open Babel v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open Babel v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Utility" href="Utility.html" />
+    <link rel="next" title="Generic Output file format (dat, output, out, log)" href="Generic_Output_file_format.html" />
+    <link rel="prev" title="Fingerprint format (fpt)" href="Fingerprint_format.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Generic_Output_file_format.html" title="Generic Output file format (dat, output, out, log)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Fingerprint_format.html" title="Fingerprint format (fpt)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="Overview.html" >Supported File Formats and Options</a> &raquo;</li>
+          <li><a href="Utility.html" accesskey="U">Utility</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">General XML format (xml)</a><ul>
+<li><a class="reference internal" href="#read-options">Read Options</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Fingerprint_format.html"
+                        title="previous chapter">Fingerprint format (fpt)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Generic_Output_file_format.html"
+                        title="next chapter">Generic Output file format (dat, output, out, log)</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/FileFormats/General_XML_format.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="general-xml-format-xml">
+<span id="general-xml-format"></span><h1>General XML format (xml)<a class="headerlink" href="#general-xml-format-xml" title="Permalink to this headline">¶</a></h1>
+<p><strong>Calls a particular XML format depending on the XML namespace.</strong></p>
+<p>This is a general XML &#8220;format&#8221; which reads a generic XML file and infers
+its format from the namespace as given in a xmlns attribute on an element.
+If a namespace is recognised as associated with one of the XML formats in
+OpenBabel, and the type of the object (e.g. a molecule) is appropriate to
+the output format then this is used to input a single object. If no namespace
+declaration is found the default format (currently CML) is used.</p>
+<p>The process is repeated for any subsequent input so that it is possible to
+input objects written in several different schemas from the same document.
+The file CMLandPubChem.xml illustrates this and contains molecules in both
+CML and PubChem formats.</p>
+<p>This implementation uses libxml2.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is a read-only format.</p>
+</div>
+<div class="section" id="read-options">
+<h2>Read Options<a class="headerlink" href="#read-options" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">n</span></kbd></td>
+<td><em>Read objects of first namespace only</em></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Generic_Output_file_format.html" title="Generic Output file format (dat, output, out, log)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Fingerprint_format.html" title="Fingerprint format (fpt)"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="Overview.html" >Supported File Formats and Options</a> &raquo;</li>
+          <li><a href="Utility.html" >Utility</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Open Babel community.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

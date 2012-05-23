@@ -1,0 +1,148 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Open Babel molecule report (molreport) &mdash; Open Babel v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open Babel v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Utility" href="Utility.html" />
+    <link rel="next" title="Open Babel report format (report)" href="Open_Babel_report_format.html" />
+    <link rel="prev" title="Multilevel Neighborhoods of Atoms (MNA) (mna)" href="Multilevel_Neighborhoods_of_Atoms_(MNA).html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Open_Babel_report_format.html" title="Open Babel report format (report)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Multilevel_Neighborhoods_of_Atoms_(MNA).html" title="Multilevel Neighborhoods of Atoms (MNA) (mna)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="Overview.html" >Supported File Formats and Options</a> &raquo;</li>
+          <li><a href="Utility.html" accesskey="U">Utility</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Multilevel_Neighborhoods_of_Atoms_(MNA).html"
+                        title="previous chapter">Multilevel Neighborhoods of Atoms (MNA) (mna)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Open_Babel_report_format.html"
+                        title="next chapter">Open Babel report format (report)</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/FileFormats/Open_Babel_molecule_report.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="open-babel-molecule-report-molreport">
+<span id="open-babel-molecule-report"></span><h1>Open Babel molecule report (molreport)<a class="headerlink" href="#open-babel-molecule-report-molreport" title="Permalink to this headline">¶</a></h1>
+<p><strong>Generates a summary of the atoms and bonds in a molecule</strong></p>
+<p>Example output:</p>
+<div class="highlight-python"><pre>TITLE: Ethanol.mopout
+FORMULA: C2H6O
+MASS: 46.0684
+ATOM:         1   C TYPE: C3     HYB:  3 CHARGE:  -0.2151
+ATOM:         2   C TYPE: C3     HYB:  3 CHARGE:  -0.0192
+ATOM:         3   O TYPE: O3     HYB:  3 CHARGE:  -0.3295
+ATOM:         4   H TYPE: HC     HYB:  0 CHARGE:   0.0771
+ATOM:         5   H TYPE: HC     HYB:  0 CHARGE:   0.0873
+ATOM:         6   H TYPE: HC     HYB:  0 CHARGE:   0.0874
+ATOM:         7   H TYPE: HC     HYB:  0 CHARGE:   0.0577
+ATOM:         8   H TYPE: HC     HYB:  0 CHARGE:   0.0577
+ATOM:         9   H TYPE: HC     HYB:  0 CHARGE:   0.1966
+BOND:         0 START:         8 END:         2 ORDER:   1
+BOND:         1 START:         6 END:         1 ORDER:   1
+BOND:         2 START:         1 END:         2 ORDER:   1
+BOND:         3 START:         1 END:         4 ORDER:   1
+BOND:         4 START:         1 END:         5 ORDER:   1
+BOND:         5 START:         2 END:         3 ORDER:   1
+BOND:         6 START:         2 END:         7 ORDER:   1
+BOND:         7 START:         3 END:         9 ORDER:   1</pre>
+</div>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="Open_Babel_report_format.html#open-babel-report-format"><em>Open Babel report format (report)</em></a></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is a write-only format.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Open_Babel_report_format.html" title="Open Babel report format (report)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Multilevel_Neighborhoods_of_Atoms_(MNA).html" title="Multilevel Neighborhoods of Atoms (MNA) (mna)"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="Overview.html" >Supported File Formats and Options</a> &raquo;</li>
+          <li><a href="Utility.html" >Utility</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Open Babel community.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

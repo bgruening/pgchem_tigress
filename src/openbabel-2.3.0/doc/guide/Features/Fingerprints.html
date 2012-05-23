@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Molecular fingerprints and similarity searching &mdash; Open Babel v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open Babel v2.3.0 documentation" href="../index.html" />
+    <link rel="next" title="Spectrophores™" href="../Spectrophore/intro.html" />
+    <link rel="prev" title="The Open Babel GUI" href="../GUI/GUI.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../Spectrophore/intro.html" title="Spectrophores™"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../GUI/GUI.html" title="The Open Babel GUI"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Molecular fingerprints and similarity searching</a><ul>
+<li><a class="reference internal" href="#available-fingerprints">Available fingerprints</a></li>
+<li><a class="reference internal" href="#similarity-searching">Similarity searching</a><ul>
+<li><a class="reference internal" href="#small-datasets">Small datasets</a></li>
+<li><a class="reference internal" href="#large-datasets">Large datasets</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#substructure-searching">Substructure searching</a><ul>
+<li><a class="reference internal" href="#id1">Small datasets</a></li>
+<li><a class="reference internal" href="#id2">Large datasets</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#case-study-search-chembldb">Case study: Search ChEMBLdb</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../GUI/GUI.html"
+                        title="previous chapter">The Open Babel GUI</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../Spectrophore/intro.html"
+                        title="next chapter">Spectrophores™</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/Features/Fingerprints.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="molecular-fingerprints-and-similarity-searching">
+<span id="fingerprints"></span><h1>Molecular fingerprints and similarity searching<a class="headerlink" href="#molecular-fingerprints-and-similarity-searching" title="Permalink to this headline">¶</a></h1>
+<p>Molecular fingerprints encode molecular structure in a series of binary digits (bits) that represent the presence or absence of particular substructures in the molecule. Comparing fingerprints will allow you to determine the similarity between two molecules, search databases, etc., but does not include full structural data (such as coordinates).</p>
+<p>The Open Babel fingerprints can be accessed through the following Utility file formats:</p>
+<ul class="simple">
+<li><a class="reference internal" href="../FileFormats/Fingerprint_format.html#fingerprint-format"><em>Fingerprint format (fpt)</em></a>: the path-based fingerprint FP2; substructure based fingerprints FP2, FP3 and MACCS; user-defined substructures</li>
+<li><a class="reference internal" href="../FileFormats/Multilevel_Neighborhoods_of_Atoms_(MNA).html#multilevel-neighborhoods-of-atoms-mna"><em>Multilevel Neighborhoods of Atoms (MNA) (mna)</em></a>: a circular fingerprint</li>
+<li><a class="reference internal" href="../FileFormats/MolPrint2D_format.html#molprint2d-format"><em>MolPrint2D format (mpd)</em></a>: a circular fingerprint</li>
+</ul>
+<p>Here we will focus on the first one, the <em>fingerprint format</em>. For the others, please see the relevant sections listed above.</p>
+<div class="section" id="available-fingerprints">
+<h2>Available fingerprints<a class="headerlink" href="#available-fingerprints" title="Permalink to this headline">¶</a></h2>
+<p>You can see the available fingerprints by typing the following command:</p>
+<div class="highlight-python"><pre>$ babel -L fingerprints
+FP2    Indexes linear fragments up to 7 atoms.
+FP3    SMARTS patterns specified in the file patterns.txt
+FP4    SMARTS patterns specified in the file SMARTS_InteLigand.txt
+MACCS    SMARTS patterns specified in the file MACCS.txt</pre>
+</div>
+<p>At present there are four types of fingerprints:</p>
+<ul>
+<li><p class="first"><strong>FP2</strong>, a path-based fingerprint which indexes small molecule fragments based on linear segments of up to 7 atoms (somewhat similar to the Daylight fingerprints):</p>
+<blockquote>
+<p>A molecule structure is analysed to identify linear fragments of length from 1-7 atoms. Single atom fragments of C, N, and O are ignored. A fragment is terminated when the atoms form a ring.</p>
+<p>For each of these fragments the atoms, bonding and whether they constitute a complete ring is recorded and saved in a set so that there is only one of each fragment type. Chemically identical versions, (i.e. ones with the atoms listed in reverse order and rings listed starting at different atoms) are identified and only a single canonical fragment is retained.</p>
+<p>Each remaining fragment is assigned a hash number from 0 to 1020 which is used to set a bit in a 1024 bit vector</p>
+</blockquote>
+</li>
+<li><p class="first"><strong>FP3</strong> uses a series of SMARTS queries stored in <tt class="file docutils literal"><span class="pre">patterns.txt</span></tt></p>
+</li>
+<li><p class="first"><strong>FP4</strong> uses a series of SMARTS queries stored in <tt class="file docutils literal"><span class="pre">SMARTS_InteLigand.txt</span></tt></p>
+</li>
+<li><p class="first"><strong>MACCS</strong> uses the SMARTS patterns in <tt class="file docutils literal"><span class="pre">MACCS.txt</span></tt></p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Note that you can tailor the latter three fingerprints to your own needs by adding your own SMARTS queries to these files. On UNIX and Mac systems, these files are frequently found in <tt class="file docutils literal"><span class="pre">/usr/local/share/openbabel</span></tt> under a directory for each version of Open Babel.</p>
+</div>
+</div>
+<div class="section" id="similarity-searching">
+<h2>Similarity searching<a class="headerlink" href="#similarity-searching" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="small-datasets">
+<h3>Small datasets<a class="headerlink" href="#small-datasets" title="Permalink to this headline">¶</a></h3>
+<p>For relatively small datasets (&lt;10,000&#8217;s) it is possible to do similarity searches without the need to build a similarity index, however larger datasets (up to a few million) can be searched rapidly once a fastsearch index has been built.</p>
+<p>On small datasets these fingerprints can be used in a variety of ways. The following command gives you the Tanimoto coefficient between a SMILES string in mysmiles.smi and all the molecules in mymols.sdf:</p>
+<div class="highlight-python"><pre>babel  mysmiles.smi  mymols.sdf -ofpt
+
+MOL_00000067   Tanimoto from first mol = 0.0888889
+MOL_00000083   Tanimoto from first mol = 0.0869565
+MOL_00000105   Tanimoto from first mol = 0.0888889
+MOL_00000296   Tanimoto from first mol = 0.0714286
+MOL_00000320   Tanimoto from first mol = 0.0888889
+MOL_00000328   Tanimoto from first mol = 0.0851064
+MOL_00000338   Tanimoto from first mol = 0.0869565
+MOL_00000354   Tanimoto from first mol = 0.0888889
+MOL_00000378   Tanimoto from first mol = 0.0816327
+MOL_00000391   Tanimoto from first mol = 0.0816327
+11 molecules converted</pre>
+</div>
+<p>The default fingerprint used is the FP2 fingerprint. You change the fingerprint using the <tt class="docutils literal"><span class="pre">f</span></tt> output option as follows:</p>
+<div class="highlight-python"><pre>babel mymols.sdf -ofpt -xfFP3</pre>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">-s</span></tt> option of babel is used to filter by SMARTS string (see Babel). If you wanted to know the similarity only to the substituted bromobenzenes in mymols.sdf then you might combine commands like this (note: if the query molecule does not match the SMARTS string this will not work as expected, as the first molecule in the database that matches the SMARTS string will instead be used as the query):</p>
+<div class="highlight-python"><pre>babel mysmiles.smi mymols.sdf -ofpt -s c1ccccc1Br
+
+MOL_00000067   Tanimoto from first mol = 0.0888889
+MOL_00000083   Tanimoto from first mol = 0.0869565
+MOL_00000105   Tanimoto from first mol = 0.0888889</pre>
+</div>
+<p>If you don&#8217;t specify a query file, babel will just use the first molecule in the database as the query:</p>
+<div class="highlight-python"><pre>babel mymols.sdf  -ofpt
+
+MOL_00000067
+MOL_00000083   Tanimoto from MOL_00000067 = 0.810811
+MOL_00000105   Tanimoto from MOL_00000067 = 0.833333
+MOL_00000296   Tanimoto from MOL_00000067 = 0.425926
+MOL_00000320   Tanimoto from MOL_00000067 = 0.534884
+MOL_00000328   Tanimoto from MOL_00000067 = 0.511111
+MOL_00000338   Tanimoto from MOL_00000067 = 0.522727
+MOL_00000354   Tanimoto from MOL_00000067 = 0.534884
+MOL_00000378   Tanimoto from MOL_00000067 = 0.489362
+MOL_00000391   Tanimoto from MOL_00000067 = 0.489362
+10 molecules converted</pre>
+</div>
+</div>
+<div class="section" id="large-datasets">
+<h3>Large datasets<a class="headerlink" href="#large-datasets" title="Permalink to this headline">¶</a></h3>
+<p>On larger datasets it is necessary to first build a fastsearch index. This is an new file that stores a database of fingerprints for the files indexed. You will still need to keep both the new .fs fastsearch index and the original files. However, the new index will allow significantly faster searching and similarity comparisons. The index is created with the following command:</p>
+<div class="highlight-python"><pre>babel mymols.sdf -ofs</pre>
+</div>
+<p>This builds mymols.fs with the default fingerprint (unfolded). The following command uses the index to find the 5 most similar molecules to the molecule in query.mol:</p>
+<div class="highlight-python"><pre>babel mymols.fs results.sdf -squery.mol -at5</pre>
+</div>
+<p>or to get the matches with Tanimoto&gt;0.6 to 1,2-dicyanobenzene:</p>
+<div class="highlight-python"><pre>babel mymols.fs results.sdf -sN#Cc1ccccc1C#N -at0.6</pre>
+</div>
+</div>
+</div>
+<div class="section" id="substructure-searching">
+<h2>Substructure searching<a class="headerlink" href="#substructure-searching" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Small datasets<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>This command will find all molecules containing 1,2-dicyanobenzene and return the results as SMILES strings:</p>
+<div class="highlight-python"><pre>babel mymols.sdf -sN#Cc1ccccc1C#N results.smi</pre>
+</div>
+<p>If all you want output are the molecule names then adding <tt class="docutils literal"><span class="pre">-xt</span></tt> will return just the molecule names:</p>
+<div class="highlight-python"><pre>babel mymols.sdf -sN#Cc1ccccc1C#N results.smi -xt</pre>
+</div>
+<p>The parameter of the <tt class="docutils literal"><span class="pre">-s</span></tt> option in these examples is actually SMARTS, which allows a richer matching specification, if required. It does mean that the aromaticity of atoms and bonds is significant; use <cite>[#6]</cite> rather than <cite>C</cite> to match both aliphatic and aromatic carbon.</p>
+<p>The <tt class="docutils literal"><span class="pre">-s</span></tt> option&#8217;s parameter can also be a file name with an extension. The file must contain a molecule, which means only substructure matching is possible (rather than full SMARTS). The matching is also slightly more relaxed with respect to aromaticity.</p>
+</div>
+<div class="section" id="id2">
+<h3>Large datasets<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>First of all, you need to create a fastsearch index (see above). The index is created with the following command:</p>
+<div class="highlight-python"><pre>babel mymols.sdf -ofs</pre>
+</div>
+<p>Substructure searching is as for small datasets, except that the fastsearch index is used instead of the original file. This command will find all molecules containing 1,2-dicyanobenzene and return the results as SMILES strings:</p>
+<div class="highlight-python"><pre>babel mymols.fs -ifs -sN#Cc1ccccc1C#N results.smi</pre>
+</div>
+<p>If all you want output are the molecule names then adding <tt class="docutils literal"><span class="pre">-xt</span></tt> will return just the molecule names:</p>
+<div class="highlight-python"><pre>babel mymols.fs -ifs -sN#Cc1ccccc1C#N results.smi -xt</pre>
+</div>
+</div>
+</div>
+<div class="section" id="case-study-search-chembldb">
+<h2>Case study: Search ChEMBLdb<a class="headerlink" href="#case-study-search-chembldb" title="Permalink to this headline">¶</a></h2>
+<p>This case study uses a combination of the techniques described above for similarity searching using large databases and using small databases. Note that we are using the default fingerprint for all of these analyses. The default fingerprint is FP2, a path-based fingerprint (somewhat similar to the Daylight fingerprints).</p>
+<ol class="arabic">
+<li><p class="first">Download Version 2 of ChEMBLdb from <a class="reference external" href="ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/">ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/</a>.</p>
+</li>
+<li><p class="first">After unzipping it, make a fastsearch index (this took 18 minutes on my machine, for the 500K+ molecules):</p>
+<div class="highlight-python"><pre>babel chembl_02.sdf -ofs</pre>
+</div>
+</li>
+<li><p class="first">Let&#8217;s use the first molecule in the sdf file as a query. Using Notepad (or on Linux, <tt class="docutils literal"><span class="pre">head</span> <span class="pre">-79</span> <span class="pre">chembl_02.sdf</span></tt>) extract the first molecule and save it as <tt class="file docutils literal"><span class="pre">first.sdf</span></tt>. Note that the molecules in the ChEMBL sdf do not have titles; instead, their IDs are stored in the &#8220;chebi_id&#8221; property field.</p>
+</li>
+<li><p class="first">This first molecule is 100183. Check its <a class="reference external" href="http://www.ebi.ac.uk/chembldb/index.php/compound/inspect/100183">ChEMBL page</a>. It&#8217;s pretty weird, but is there anything similiar in ChEMBLdb? Let&#8217;s find the 5 most similar molecules:</p>
+<div class="highlight-python"><pre>babel chembl_02.fs mostsim.sdf -s first.sdf -at5</pre>
+</div>
+</li>
+</ol>
+<ol class="arabic" start="5">
+<li><p class="first">The results are stored in <tt class="file docutils literal"><span class="pre">mostsim.sdf</span></tt>, but how similar are these molecules to the query?:</p>
+<div class="highlight-python"><pre>babel first.sdf mostsim.sdf -ofpt
+&gt;
+&gt;   Tanimoto from first mol = 1
+Possible superstructure of first mol
+&gt;   Tanimoto from first mol = 0.986301
+&gt;   Tanimoto from first mol = 0.924051
+Possible superstructure of first mol
+&gt;   Tanimoto from first mol = 0.869048
+Possible superstructure of first mol
+&gt;   Tanimoto from first mol = 0.857143
+6 molecules converted
+76 audit log messages</pre>
+</div>
+</li>
+<li><p class="first">That&#8217;s all very well, but it would be nice to show the ChEBI IDs. Let&#8217;s set the title field of <tt class="file docutils literal"><span class="pre">mostsim.sdf</span></tt> to the content of the &#8220;chebi_id&#8221; property field, and repeat step 5:</p>
+<div class="highlight-python"><pre>babel mostsim.sdf mostsim_withtitle.sdf --append "chebi_id"
+babel first.sdf mostsim_withtitle.sdf -ofpt
+&gt;
+&gt;100183   Tanimoto from first mol = 1
+Possible superstructure of first mol
+&gt;124893   Tanimoto from first mol = 0.986301
+&gt;206983   Tanimoto from first mol = 0.924051
+Possible superstructure of first mol
+&gt;207022   Tanimoto from first mol = 0.869048
+Possible superstructure of first mol
+&gt;607087   Tanimoto from first mol = 0.857143
+6 molecules converted
+76 audit log messages</pre>
+</div>
+</li>
+<li><p class="first">Here are the ChEMBL pages for these molecules: <a class="reference external" href="http://www.ebi.ac.uk/chembldb/index.php/compound/inspect/100183">100183</a>, <a class="reference external" href="http://www.ebi.ac.uk/chembldb/index.php/compound/inspect/124893">124893</a>, <a class="reference external" href="http://www.ebi.ac.uk/chembldb/index.php/compound/inspect/206983">206983</a>, <a class="reference external" href="http://www.ebi.ac.uk/chembldb/index.php/compound/inspect/207022">207022</a>, <a class="reference external" href="http://www.ebi.ac.uk/chembldb/index.php/compound/inspect/607087">607087</a>. I think it is fair to say that they are pretty similiar. In particular, the output states that 206983 and 207022 are possible superstructures of the query molecule, and that is indeed true.</p>
+</li>
+</ol>
+<ol class="arabic" start="8">
+<li><p class="first">How many of the molecules in the dataset are superstructures of the molecule in <tt class="file docutils literal"><span class="pre">first.sdf</span></tt>? To do this and to visualize the large numbers of molecules produced, we can output to SVG format (see <a class="reference internal" href="../FileFormats/SVG_depiction.html#svg-depiction"><em>SVG depiction (svg)</em></a>):</p>
+<div class="highlight-python"><pre>obabel chembl_02.fs  -O out.svg  -s first.sdf</pre>
+</div>
+</li>
+</ol>
+<blockquote>
+<p>Note that <strong class="program">obabel</strong> has been used here because of its more flexible option handling.</p>
+<p>This command does a substructure search and puts the 47 matching structures in the file <tt class="file docutils literal"><span class="pre">out.svg</span></tt>. This can be viewed in a browser like Firefox, Opera or Chrome (but not Internet Explorer). The display will give an overall impression of the set of molecules but details can be seen by zooming in with the mousewheel and panning by dragging with a mouse button depressed.</p>
+</blockquote>
+<ol class="arabic" start="9">
+<li><p class="first">The substructure that is being matched can be highlighted in the output molecules by adding another parameter to the <tt class="docutils literal"><span class="pre">-s</span></tt> option. Just for variety, the display is also changed to a black background, &#8216;uncolored&#8217; (no element-specific coloring), and terminal carbon not shown explicitly. (Just refresh your browser to see the modified display.)</p>
+<div class="highlight-python"><pre>obabel chembl_02.fs  -O out.svg  -s first.sdf green  -xb -xu -xC</pre>
+</div>
+</li>
+</ol>
+<blockquote>
+This highlighting option also works when  the <tt class="docutils literal"><span class="pre">-s</span></tt> option is used without fastsearch on small datasets.</blockquote>
+<ol class="arabic" start="10">
+<li><p class="first">The substructure search here has two stages.  The indexed fingerprint search quickly produces 62 matches from the 500K+ molecules in the dataset. Each of these is then checked by a slow detailed isomorphism check. There are 15 false positives from the fingerprint stage. These are of no significance, but you can see them using:</p>
+<div class="highlight-python"><pre>obabel chembl_02.fs  -O out.svg  -s ~first.sdf</pre>
+</div>
+</li>
+</ol>
+<blockquote>
+The fingerprint search is unaffected but the selection in the second stage is inverted.</blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../Spectrophore/intro.html" title="Spectrophores™"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../GUI/GUI.html" title="The Open Babel GUI"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Open Babel community.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

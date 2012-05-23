@@ -1,0 +1,160 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Documentation &mdash; Open Babel v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open Babel v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Contributing to Open Babel" href="Contributing.html" />
+    <link rel="next" title="Testing the Code" href="Testing.html" />
+    <link rel="prev" title="Version Control" href="VersionControl.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Testing.html" title="Testing the Code"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="VersionControl.html" title="Version Control"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="Contributing.html" accesskey="U">Contributing to Open Babel</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Documentation</a><ul>
+<li><a class="reference internal" href="#adding-new-code">Adding New Code</a></li>
+<li><a class="reference internal" href="#modifying-old-code">Modifying Old Code</a></li>
+<li><a class="reference internal" href="#changelog-entries">ChangeLog entries</a></li>
+<li><a class="reference internal" href="#user-documentation">User documentation</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="VersionControl.html"
+                        title="previous chapter">Version Control</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Testing.html"
+                        title="next chapter">Testing the Code</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/Contributing/Documentation.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="documentation">
+<span id="id1"></span><h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h1>
+<p>Documenting Open Babel is an important and ongoing task. This includes clear documentation on the interfaces of particular classes and methods (that is, the <a class="reference external" href="http://openbabel.org/api">API</a> documentation) but also tutorials and examples of using the Open Babel library to accomplish clear tasks.</p>
+<p>Beyond the documentation described above, as an open-source project involving many, many contributors, the internal code should be clearly commented and easy to read (in English, preferably, since this is the common language of developers on the project).</p>
+<div class="section" id="adding-new-code">
+<h2>Adding New Code<a class="headerlink" href="#adding-new-code" title="Permalink to this headline">¶</a></h2>
+<p>The golden rule is <strong>write the documentation, then code to the specs</strong>.</p>
+<p>You should never, ever start writing code unless you&#8217;ve specified, clearly and exactly, what your code will do. This makes life easier for you (i.e., you know exactly what the code should do), and for others reading your code.</p>
+<p>This mantra also facilitates writing tests (see <a class="reference internal" href="Testing.html#testing"><em>Testing the Code</em></a>).</p>
+</div>
+<div class="section" id="modifying-old-code">
+<h2>Modifying Old Code<a class="headerlink" href="#modifying-old-code" title="Permalink to this headline">¶</a></h2>
+<p>When modifying old code, please take a little time to improve the documentation of the function.</p>
+<p>Even an &#8220;obvious&#8221; function must be documented, if for no other reason than to say, &#8220;This function does what you think, and has no side effects.&#8221;</p>
+<p>Take <span>SetAtomicNum()</span> - should be &#8220;obvious&#8221;, right? Wrong.</p>
+<blockquote>
+<ul class="simple">
+<li>Does it affect the charge?</li>
+<li>The spin multiplicity?</li>
+<li>The implicit valence?</li>
+<li>The hybridization?</li>
+<li>What happens if I do SetHybridization(3) and then SetAtomicNum(1)?</li>
+<li>Does the molecule have to be in the modify state?</li>
+<li>If the molecule is not in the modify state, is it put into the modify state by SetAtomicNum()?</li>
+<li>Does SetAtomicNum() cause a recomputation of aromaticity?</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="changelog-entries">
+<h2>ChangeLog entries<a class="headerlink" href="#changelog-entries" title="Permalink to this headline">¶</a></h2>
+<p>A standard ChangeLog file is used to track changes to files by different users over time. Whenever a change is made to a file, please add a ChangeLog entry &#8211; the format should be self-explanatory from other entries.</p>
+</div>
+<div class="section" id="user-documentation">
+<h2>User documentation<a class="headerlink" href="#user-documentation" title="Permalink to this headline">¶</a></h2>
+<p>The documentation you are reading right now is automatically generated from text files in a simple markup language (<em>reStructuredText</em>) using the <a class="reference external" href="http://sphinx.pocoo.org/">Sphinx</a> documenatation system. If you notice any errors or feel there are any missing sections, please let us know at <a class="reference external" href="https://lists.sourceforge.net/lists/listinfo/openbabel-devel">openbabel-devel</a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Testing.html" title="Testing the Code"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="VersionControl.html" title="Version Control"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="Contributing.html" >Contributing to Open Babel</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Open Babel community.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

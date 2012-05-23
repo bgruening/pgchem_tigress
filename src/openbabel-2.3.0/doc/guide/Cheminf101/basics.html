@@ -1,0 +1,221 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Cheminformatics Basics &mdash; Open Babel v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open Babel v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Cheminformatics 101" href="index.html" />
+    <link rel="next" title="Representing Molecules" href="represent.html" />
+    <link rel="prev" title="Cheminformatics 101" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="represent.html" title="Representing Molecules"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Cheminformatics 101"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Cheminformatics 101</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Cheminformatics Basics</a><ul>
+<li><a class="reference internal" href="#what-is-cheminformatics">What is Cheminformatics?</a></li>
+<li><a class="reference internal" href="#how-is-cheminformatics-different">How is Cheminformatics Different?</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Cheminformatics 101</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="represent.html"
+                        title="next chapter">Representing Molecules</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/Cheminf101/basics.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="cheminformatics-basics">
+<h1>Cheminformatics Basics<a class="headerlink" href="#cheminformatics-basics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-cheminformatics">
+<h2>What is Cheminformatics?<a class="headerlink" href="#what-is-cheminformatics" title="Permalink to this headline">¶</a></h2>
+<p><em>Cheminformatics</em> is a cross between Computer Science and
+Chemistry &#8211; the process of storing and retrieving information about
+chemical compounds.</p>
+<p><em>Information Systems</em> are concerned with storing, retrieving, and
+searching information, and with storing <em>relationships</em> between
+bits of data. For example:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="14%" />
+<col width="19%" />
+<col width="30%" />
+<col width="30%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Operation</th>
+<th class="head" colspan="2">Classical Information System</th>
+<th class="head" colspan="2">Chemical Information System</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Store</td>
+<td>Name = &#8216;Jimmy Carter&#8217;</td>
+<td>Stores text, numbers, dates, ...</td>
+<td><img alt="image0" src="../_images/steroid2.gif" /></td>
+<td>Stores chemical compounds and information about them</td>
+</tr>
+<tr><td>Retrieve</td>
+<td>Find record #13282</td>
+<td>Retrieves &#8216;Jimmy Carter&#8217;</td>
+<td>Find CC(=O)C4CC3C2CC(C)C1=C(C)...
+C(=O)CC(O)C1C2CCC3(C)C4</td>
+<td>Retrieves: <img alt="image0" src="../_images/steroid2.gif" /></td>
+</tr>
+<tr><td>Search</td>
+<td>Find Presidents named
+&#8216;Bush&#8217;</td>
+<td>George Bush and George
+W. Bush</td>
+<td>Find molecules containing <img alt="image2" src="../_images/steroid1.gif" /></td>
+<td>Retrieves: <img alt="image3" src="../_images/steroid2_matched.gif" /></td>
+</tr>
+<tr><td>Relationship</td>
+<td>Year Carter was elected</td>
+<td>Answer: Elected in 1976</td>
+<td>What&#8217;s the logP(o/w) of <img alt="image2" src="../_images/steroid1.gif" /></td>
+<td>Answer: logP(o/W) = 2.62</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="how-is-cheminformatics-different">
+<h2>How is Cheminformatics Different?<a class="headerlink" href="#how-is-cheminformatics-different" title="Permalink to this headline">¶</a></h2>
+<p>There are four key problems a cheminformatics system solves:</p>
+<ol class="arabic simple">
+<li><strong>Store a Molecule</strong></li>
+</ol>
+<blockquote>
+Computer scientists usually use the <em>valence model</em> of chemistry to
+represent compounds. Section 2,
+<a class="reference external" href="cheminformatics-101-molecules.php">Representing Molecules</a>,
+discusses this at length.</blockquote>
+<ol class="arabic simple" start="2">
+<li><strong>Find exact molecule</strong></li>
+</ol>
+<blockquote>
+If you ask, &#8220;Is Abraham Lincoln in the database?&#8221; it&#8217;s not hard to
+find the answer. But, given a specific molecule, is it in the
+database? What do we know about it? This may seem seem simple at
+first glance, but it&#8217;s not, as we&#8217;ll see when we discuss tautomers,
+stereochemistry, metals, and other &#8220;flaws&#8221; in the valence model of
+chemistry.</blockquote>
+<ol class="arabic simple" start="3">
+<li><strong>Substructure search</strong></li>
+</ol>
+<blockquote>
+If you ask, &#8220;Is anyone named Lincoln in the database?&#8221; you usually
+expect to find the former President and a number of others - this
+is called a <em>search</em> rather than a <em>lookup</em>. For a chemical
+informatics system, we have a <em>substructure search</em>: Find all
+molecules containing a partial molecule (the &#8220;substructure&#8221;) drawn
+by the user. The substructure is usually a functional group,
+&#8220;scaffold&#8221;, or core structure representing a class of molecules.
+This too is a hard problem, <em>much</em> harder than most text searches,
+for reasons that go to the very root of mathematics and the theory
+of computability.</blockquote>
+<ol class="arabic simple" start="4">
+<li><strong>Similarity search</strong></li>
+</ol>
+<blockquote>
+Some databases can find similar-sounding or misspelled words, such as &#8220;Find Lincon&#8221; or &#8220;find Cincinati&#8221;, which respectively might find
+Abraham Lincoln and Cincinnati. Many chemical information systems can find molecules similar to a given molecule, ranked by
+similarity. There are several ways to measure molecular similarity, discussed further in Section 4,
+<a class="reference external" href="cheminformatics-101-molecular-similarity.php">Molecular Similarity</a>.</blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="represent.html" title="Representing Molecules"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Cheminformatics 101"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Cheminformatics 101</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Open Babel community.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

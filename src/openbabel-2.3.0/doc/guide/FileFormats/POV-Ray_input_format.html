@@ -1,0 +1,159 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>POV-Ray input format (pov) &mdash; Open Babel v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open Babel v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Images" href="Images.html" />
+    <link rel="next" title="SVG depiction (svg)" href="SVG_depiction.html" />
+    <link rel="prev" title="PNG files with embedded data (png)" href="PNG_files_with_embedded_data.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="SVG_depiction.html" title="SVG depiction (svg)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="PNG_files_with_embedded_data.html" title="PNG files with embedded data (png)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="Overview.html" >Supported File Formats and Options</a> &raquo;</li>
+          <li><a href="Images.html" accesskey="U">Images</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">POV-Ray input format (pov)</a><ul>
+<li><a class="reference internal" href="#write-options">Write Options</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="PNG_files_with_embedded_data.html"
+                        title="previous chapter">PNG files with embedded data (png)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="SVG_depiction.html"
+                        title="next chapter">SVG depiction (svg)</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/FileFormats/POV-Ray_input_format.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="pov-ray-input-format-pov">
+<span id="pov-ray-input-format"></span><h1>POV-Ray input format (pov)<a class="headerlink" href="#pov-ray-input-format-pov" title="Permalink to this headline">¶</a></h1>
+<p><strong>Generate an input file for the open source POV-Ray ray tracer.</strong></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is a write-only format.</p>
+</div>
+<div class="section" id="write-options">
+<h2>Write Options<a class="headerlink" href="#write-options" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">c</span></kbd></td>
+<td><em>Add a black and white checkerboard</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">f</span></kbd></td>
+<td><em>Add a mirror sphere</em></td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">m <var>&lt;model-type&gt;</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td><p class="first"><em>BAS (ball-and-stick), SPF (space-fill) or CST (capped sticks)</em></p>
+<p>The default option is ball-and-stick. To choose space-fill, you would use the following command line:</p>
+<div class="last highlight-python"><pre>obabel aspirin.mol -O aspirin.pov -xm SPF</pre>
+</div>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">s</span></kbd></td>
+<td><em>Add a sky (with clouds)</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">t</span></kbd></td>
+<td><em>Use transparent textures</em></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="SVG_depiction.html" title="SVG depiction (svg)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="PNG_files_with_embedded_data.html" title="PNG files with embedded data (png)"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="Overview.html" >Supported File Formats and Options</a> &raquo;</li>
+          <li><a href="Images.html" >Images</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Open Babel community.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

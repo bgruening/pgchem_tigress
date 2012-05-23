@@ -1,0 +1,391 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Representing Molecules &mdash; Open Babel v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open Babel v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Cheminformatics 101" href="index.html" />
+    <link rel="next" title="Substructure Searching with Indexes" href="search.html" />
+    <link rel="prev" title="Cheminformatics Basics" href="basics.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="search.html" title="Substructure Searching with Indexes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="basics.html" title="Cheminformatics Basics"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Cheminformatics 101</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Representing Molecules</a><ul>
+<li><a class="reference internal" href="#what-is-a-molecule">What is a Molecule?</a></li>
+<li><a class="reference internal" href="#older-systems-connection-tables">Older systems: Connection Tables</a></li>
+<li><a class="reference internal" href="#line-notations-inchi-smiles-wln-and-others">Line Notations: InChI, SMILES, WLN and others</a></li>
+<li><a class="reference internal" href="#id1">Canonicalization</a></li>
+<li><a class="reference internal" href="#line-notation-versus-connection-tables-a-practical-matter">Line Notation versus Connection Tables: A practical matter</a></li>
+<li><a class="reference internal" href="#query-languages-smarts">Query Languages: SMARTS</a></li>
+<li><a class="reference internal" href="#iupac-names-trade-names-common-names">IUPAC Names, Trade Names, Common Names</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="basics.html"
+                        title="previous chapter">Cheminformatics Basics</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="search.html"
+                        title="next chapter">Substructure Searching with Indexes</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/Cheminf101/represent.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="representing-molecules">
+<h1>Representing Molecules<a class="headerlink" href="#representing-molecules" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-a-molecule">
+<h2>What is a Molecule?<a class="headerlink" href="#what-is-a-molecule" title="Permalink to this headline">¶</a></h2>
+<p>One of the greatest achievements in chemistry was the development
+of the <em>valence model</em> of chemistry, where a molecule is
+represented as <em>atoms</em> joined by semi-rigid <em>bonds</em> that can be
+single, double, or triple. This simple mental model has little
+resemblance to the underlying quantum-mechanical reality of
+electrons, protons and neutrons, yet it has proved to be a
+remarkably useful approximation of how atoms behave in close
+proximity to one another, and has been the foundation of chemical
+instruction for well over a century.</p>
+<p>The valence model is also the foundation of modern chemical
+information systems. When a Computer Scientist approaches a
+problem, the first task is to figure out a <em>datamodel</em> that
+represents the problem to be solved as <em>information</em>. To the
+Computer Scientist, the valence model naturally transforms into a
+<em>graph</em>, where the <em>nodes</em> are atoms and the <em>edges</em> are bonds.
+Computer Scientists know how to manipulate graphs - mathematical
+graph theory and computer science have been closely allied since
+the invention of the digital computer.</p>
+<blockquote class="epigraph">
+<p><em>There are atoms and space. Everything else is opinion.</em></p>
+<p class="attribution">&mdash;Democritus</p>
+</blockquote>
+<p>However, the valence model of chemistry has many shortcomings. The
+most obvious is aromaticity, which quickly required adding the
+concept of a non-integral &#8220;aromatic&#8221; distributed bond, to the
+single/double/triple bonds of the simple valence model. And that
+was just the start - tautomers, ferrocenes, charged molecules and a
+host of other common molecules simply don&#8217;t fit the valence model
+well.</p>
+<p>This complicates life for the computer scientist. As we shall see,
+they are the source of most of the complexity of modern
+cheminformatics systems.</p>
+</div>
+<div class="section" id="older-systems-connection-tables">
+<h2>Older systems: Connection Tables<a class="headerlink" href="#older-systems-connection-tables" title="Permalink to this headline">¶</a></h2>
+<p>Most of the early (and some modern) representations of molecules
+were in a <em>connection table</em>, literally, a table enumerating the
+atoms, and a table enumerating the bonds and which atoms each bond
+connected. Here is an example of connection-table (CTAB) portion of
+an MDL &#8220;SD&#8221; file (the data portion is not shown here):</p>
+<div class="highlight-python"><pre>MOLCONV
+
+3 2  0  0  1  0              1 V2000
+5.9800   -0.0000   -0.0000 Br  0  0  0  0  0  0
+4.4000   -0.6600    0.8300 C   0  0  0  0  0  0
+3.5400   -1.3500   -0.1900 C   0  0  0  0  0  0
+1  2  1  0
+2  3  1  0</pre>
+</div>
+<p>This simple example illustrates most of the key features. The
+molecule has three atoms, two bonds, and is provided with
+three-dimensional (x,y,z) coordinates. MDL provides
+<a class="reference external" href="http://www.mdli.com/downloads/downloadable/index.jsp">extensive documentation</a>
+for their various CTFile formats if you are interested in the
+details.</p>
+<p>Connection tables can capture the valence model of chemistry fairly
+well, but they suffer from two problems:</p>
+<p>They are very inefficient, taking on the order of a dozen or two of
+bytes of data per atom and per bond. Newer line notations
+(discussed below) represent a molecules with an average of 1.2 to
+1.5 bytes per atom, or 6-8 bytes per atom if coordinates are added.
+Many suffered from lack of specificity. For example, since
+hydrogens are often not specified, there can be ambiguity as to the
+electronic state of some molecules, because the connection-table
+format does not explicitly state the valence assumptions.
+Most mix the concept of <em>connectivity</em> (what are the atoms and how
+are they connected?) with other data such as 2D and 3D coordinates.
+For example, if you had two different conformers of a molecule,
+most connection tables would require you to specify the entire
+molecule twice, even though the connection table is identical in
+both.</p>
+</div>
+<div class="section" id="line-notations-inchi-smiles-wln-and-others">
+<h2>Line Notations: InChI, SMILES, WLN and others<a class="headerlink" href="#line-notations-inchi-smiles-wln-and-others" title="Permalink to this headline">¶</a></h2>
+<p>A <em>line notation</em> represents a molecule as a single-line string of
+characters.</p>
+<blockquote>
+<dl class="docutils">
+<dt><strong>WLN - Wisswesser Line Notation</strong></dt>
+<dd><p class="first">WLN, invented by William J. Wisswesser in the early 1950&#8217;s, was the
+first comprehensive line notation, capable of representing
+arbitrarily complex molecules correctly and compactly.</p>
+<div class="highlight-python"><pre>1H = CH4 Methane
+2H = CH3-CH3 Ethane
+3H = CH3-CH2-CH3 Propane
+QVR BG CG DG EG FG = C7HCl5O2 Pentachlorbenzoate</pre>
+</div>
+<p class="last">WLN was the first line notation to feature a <em>canonical form</em>, that
+is, the rules for WLN meant there was only one &#8220;correct&#8221; WLN for
+any particular molecule. Those versed in WLN were able to write
+molecular structure in a line format, communicate molecular
+structure to one another and to computer programs. Unfortunately,
+WLN&#8217;s complexity prevented widespread adoption. The rules for
+correct specification of WLN filled a small book, encoding those
+rules into a computer proved difficult, and the rules for the
+<a class="reference external" href="#canonicalization">canonicalization</a> were computationally
+intractable.</p>
+</dd>
+<dt><strong>SMILES - Simplified Molecular Input Line Entry System</strong></dt>
+<dd><p class="first">The best-known line notation today is SMILES. It was by Arthur and
+David Weininger in response to a need for a simpler, more &#8220;human
+accessible&#8221; notation than WLN. While SMILES is not trivial to learn
+and write, most chemists can create correct SMILES with just a few
+minutes training, and the entire SMILES language can be learned in
+an hour or two. You can
+<a class="reference external" href="http://www.opensmiles.org/spec/open-smiles.html">read more details here</a>.
+Here are some examples:</p>
+<div class="highlight-python"><pre>C          methane
+CC         ethane
+C=C        ethene
+Oc1ccccc1  phenol</pre>
+</div>
+<p class="last">SMILES, like WLN, has a <em>canonical form</em>, but unlike WLN, Weininger
+relied on the computer, rather than the chemist, to convert a
+non-canonical SMILES to a canonical SMILES. This important
+separation of duties was key to making SMILES easy to enter. (Read
+more about canonicalization below.)</p>
+</dd>
+<dt><strong>InChI</strong></dt>
+<dd><p class="first">InChI is the latest and most modern of the line notations. It
+resolves many of the chemical ambiguities not addressed by SMILES,
+particularly with respect to stereo centers, tautomers and other of
+the &#8220;valence model problems&#8221; discussed in the
+<a class="reference external" href="cheminformatics-101.htm#A1">opening section</a> of this document.</p>
+<p class="last">You can read more about InChI at the
+<a class="reference external" href="http://www.iupac.org/projects/2000/2000-025-1-800.html">Official Web Site</a>,
+or on the
+<a class="reference external" href="http://wwmm.ch.cam.ac.uk/inchifaq/index.html">Unofficial InChI FAQ page</a>.</p>
+</dd>
+</dl>
+</blockquote>
+</div>
+<div class="section" id="id1">
+<h2>Canonicalization<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>A critical feature of line notations is <em>canonicalization</em> - the
+ability to choose one &#8220;blessed&#8221; representation from among the many.
+Consider:</p>
+<div class="highlight-python"><pre>OCC   ethanol
+CCO   ethanol</pre>
+</div>
+<p>Both of these SMILES represent the same molecule. If we could all
+agree that one of these was the &#8220;correct&#8221; or &#8220;canonical&#8221; SMILES for
+ethanol, then we would <em>always store it the same way</em> in our
+database. More importantly, if we want to ask, &#8220;Is ethanol in our
+database&#8221; we know that it will only be there once, and that we can
+generate the canonical SMILES for ethanol and look it up.</p>
+<p>(Note that in theory one can create a canonical connection table,
+too, but it&#8217;s not as useful since informatics systems usually have
+trouble indexing BLOBs - large objects.)</p>
+</div>
+<div class="section" id="line-notation-versus-connection-tables-a-practical-matter">
+<h2>Line Notation versus Connection Tables: A practical matter<a class="headerlink" href="#line-notation-versus-connection-tables-a-practical-matter" title="Permalink to this headline">¶</a></h2>
+<p>Why are line notations preferred over connection-table formats? In
+theory, either could express the same information. But there are
+practical difference, mostly related to the complexity of &#8220;parsing&#8221;
+a connection table. If you know that the whole molecule is on one
+line of a file, it&#8217;s easy to parse.</p>
+<p>Line notations are also very nice for database applications.
+Relational databases have datatypes that, roughly speaking, are
+divided into numbers, text, and &#8220;everything else&#8221;, also known as
+&#8220;BLOBs&#8221; (Binary Large OBjects). You can store line notations in the
+&#8220;text&#8221; fields much more easily than connection tables.</p>
+<p>Line notations also have pragmatic advantages. Modern Unix-like
+systems (such as UNIX, Linux and Cygwin) have a number of very
+powerful &#8220;filter&#8221; text-processing programs that can be &#8220;piped&#8221;
+together (connected end-to-end) to perform important tasks. For
+example, to count the number of molecules containing aliphatic
+nitrogen in a SMILES file, I can simply:</p>
+<div class="highlight-python"><pre>grep N &lt;file.smi | wc</pre>
+</div>
+<p>(&#8220;grep&#8221; looks for a particular expression, in this case &#8220;N&#8221;, and
+prints any line that contains it, and wc (&#8220;word count&#8221;) counts the
+number of words and lines.)</p>
+<p>This is just a simple example of the power available via &#8220;script&#8221;
+programs using &#8220;filters&#8221; on Unix-like systems. Unix &#8220;filters&#8221; are
+much less useful for connection-table formats, because each
+molecule is spread over many lines.</p>
+</div>
+<div class="section" id="query-languages-smarts">
+<h2>Query Languages: SMARTS<a class="headerlink" href="#query-languages-smarts" title="Permalink to this headline">¶</a></h2>
+<p>In addition to a typographical way to represent molecules, we also
+need a way to enter <em>queries</em> about molecules, such as, &#8220;Find all
+molecules that contain a phenol.&#8221;</p>
+<p>With text, we&#8217;re familiar with the concept of typing a partial
+word, such as &#8220;ford&#8221; to find &#8220;Henry Ford&#8221; as well as &#8220;John
+Hartford&#8221;. For chemistry, we can also specify partial structures,
+and find anything that contains them. For example:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="15%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Query</th>
+<th class="head">Database</th>
+<th class="head">Matches?</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td rowspan="2"><img alt="image0" src="../_images/steroid1.gif" /></td>
+<td><img alt="image1" src="../_images/steroid2_matched.gif" /></td>
+<td><strong>YES</strong> (matched portion highlighted in blue)</td>
+</tr>
+<tr><td><img alt="image2" src="../_images/steroid3.gif" /></td>
+<td><strong>NO</strong> (double bond indicated doesn&#8217;t match)</td>
+</tr>
+</tbody>
+</table>
+<div class="sidebar">
+<p class="first sidebar-title">eMolecules, Inc.</p>
+<img alt="../_images/eMolecules.png" class="align-center" src="../_images/eMolecules.png" />
+<p class="last"><a class="reference external" href="http://www.emolecules.com">eMolecules</a> is a one-stop shop for suppliers and information for over 8 million chemical compounds. Under the hood is a chemical registration technology based on Open Babel.</p>
+</div>
+<p>The simplest query language for chemistry is SMILES itself: Just
+specify a structure, such as <tt class="docutils literal"><span class="pre">Oc1ccccc1</span></tt>, and search. This is how
+eMolecules&#8217; basic searching works (see Sidebar). It&#8217;s simple and, because of the
+high-performance indexes in eMolecules, it is very fast.</p>
+<p>However, for general-purpose cheminformatics, one needs more power.
+What if the substructure you&#8217;re looking for isn&#8217;t a valid molecule?
+For example <tt class="docutils literal"><span class="pre">ClccBr</span></tt> (1,2- substitution on an aromatic ring) isn&#8217;t a
+whole molecule, since the concept of aromaticity is only sensible
+in the context of a whole ring system.</p>
+<p>Or what if the thing we&#8217;re looking for isn&#8217;t a simple atom such as
+Br, but rather a concept like &#8220;Halogen&#8221;? Or, &#8220;A terminal methyl&#8221;?</p>
+<p>To address this, cheminformatics systems have special
+<em>query languages</em>, such as SMARTS (SMiles ARbitrary Target
+Specification). SMARTS is a close cousin to SMILES, but it has
+<em>expressions</em> instead of simple atoms and bonds. For example, <tt class="docutils literal"><span class="pre">[C,N]</span></tt>
+will find an atom that is either carbon or nitrogen.</p>
+</div>
+<div class="section" id="iupac-names-trade-names-common-names">
+<h2>IUPAC Names, Trade Names, Common Names<a class="headerlink" href="#iupac-names-trade-names-common-names" title="Permalink to this headline">¶</a></h2>
+<p>Chemistry also has three other important name systems:</p>
+<dl class="docutils">
+<dt><strong>IUPAC Names</strong></dt>
+<dd><a class="reference external" href="http://www.iupac.org/dhtml_home.html">IUPAC</a>
+(the International
+Union of Pure and Applied Chemistry) established a
+<a class="reference external" href="http://www.chem.qmul.ac.uk/iupac/">naming convention</a> that is
+widely used throughout chemistry. Any chemical can be named, and
+all IUPAC names are unambiguous. This textual representation is
+aimed at humans, not computers: Chemists versed in IUPAC
+nomenclature (which is widely taught) can read an IUPAC name and
+visualize or draw the molecule.</dd>
+<dt><strong>Trade Names</strong></dt>
+<dd>Names such as Tylenol™ and Valium™ are given to compounds
+and formulations by manufacturers for marketing and sales purposes,
+and for regulatory purposes.</dd>
+<dt><strong>Common names</strong></dt>
+<dd>Names such as &#8220;aspirin&#8221; or &#8220;alcohol&#8221; for
+substances that are in widespread use.</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="search.html" title="Substructure Searching with Indexes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="basics.html" title="Cheminformatics Basics"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Cheminformatics 101</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Open Babel community.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Ruby &mdash; Open Babel v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open Babel v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Write software using the Open Babel library" href="intro.html" />
+    <link rel="next" title="Cheminformatics 101" href="../Cheminf101/index.html" />
+    <link rel="prev" title="CSharp and OBDotNet" href="CSharp.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../Cheminf101/index.html" title="Cheminformatics 101"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="CSharp.html" title="CSharp and OBDotNet"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="intro.html" accesskey="U">Write software using the Open Babel library</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="CSharp.html"
+                        title="previous chapter">CSharp and OBDotNet</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../Cheminf101/index.html"
+                        title="next chapter">Cheminformatics 101</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/UseTheLibrary/Ruby.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="ruby">
+<h1>Ruby<a class="headerlink" href="#ruby" title="Permalink to this headline">¶</a></h1>
+<p>As with the other language bindings, the Ruby bindings are auto-generated and include a Makefile that uses extconf.rb. These bindings are only available for Linux and MacOSX. (We would welcome help in making them available on Windows also.)</p>
+<p>To generate the <tt class="file docutils literal"><span class="pre">Makefile</span></tt> and run it, use something like the following:</p>
+<div class="highlight-python"><pre>% ruby extconf.rb --with-openbabel-include=/usr/local/include/openbabel-2.0
+% make</pre>
+</div>
+<p>Like any Ruby module, the Open Babel bindings can be used from a Ruby script or interactively using <strong class="program">irb</strong> as follows:</p>
+<div class="highlight-python"><pre>% irb
+irb(main):001:0&gt; require 'openbabel'</pre>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../Cheminf101/index.html" title="Cheminformatics 101"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="CSharp.html" title="CSharp and OBDotNet"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="intro.html" >Write software using the Open Babel library</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Open Babel community.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

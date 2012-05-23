@@ -1,0 +1,174 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>MDL MOL format (mol, mdl, sdf, sd) &mdash; Open Babel v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open Babel v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Common cheminformatics" href="Common_cheminformatics.html" />
+    <link rel="next" title="Protein Data Bank format (pdb, ent)" href="Protein_Data_Bank_format.html" />
+    <link rel="prev" title="InChI format (inchi)" href="InChI_format.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Protein_Data_Bank_format.html" title="Protein Data Bank format (pdb, ent)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="InChI_format.html" title="InChI format (inchi)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="Overview.html" >Supported File Formats and Options</a> &raquo;</li>
+          <li><a href="Common_cheminformatics.html" accesskey="U">Common cheminformatics</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">MDL MOL format (mol, mdl, sdf, sd)</a><ul>
+<li><a class="reference internal" href="#read-options">Read Options</a></li>
+<li><a class="reference internal" href="#write-options">Write Options</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="InChI_format.html"
+                        title="previous chapter">InChI format (inchi)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Protein_Data_Bank_format.html"
+                        title="next chapter">Protein Data Bank format (pdb, ent)</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/FileFormats/MDL_MOL_format.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="mdl-mol-format-mol-mdl-sdf-sd">
+<span id="mdl-mol-format"></span><h1>MDL MOL format (mol, mdl, sdf, sd)<a class="headerlink" href="#mdl-mol-format-mol-mdl-sdf-sd" title="Permalink to this headline">¶</a></h1>
+<p><strong>Reads and writes V2000 and V3000 versions</strong></p>
+<div class="section" id="read-options">
+<h2>Read Options<a class="headerlink" href="#read-options" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">s</span></kbd></td>
+<td><p class="first"><em>determine chirality from atom parity flags</em></p>
+<p class="last">This is valid only for 0D information. Atom
+parity is always ignored on reading for MOL files
+containing 2D or 3D information.</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">T</span></kbd></td>
+<td><em>read title only</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">P</span></kbd></td>
+<td><p class="first"><em>read title and properties only</em></p>
+<p class="last">When filtering an sdf file on title or properties
+only, avoid lengthy chemical interpretation by
+using the T or P option together with copy format.</p>
+</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="write-options">
+<h2>Write Options<a class="headerlink" href="#write-options" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">3</span></kbd></td>
+<td><em>output V3000 not V2000 (used for &gt;999 atoms/bonds)</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">m</span></kbd></td>
+<td><em>write no properties</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">w</span></kbd></td>
+<td><em>recalculate wedge and hash bonds(2D structures only)</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">A</span></kbd></td>
+<td><em>output in Alias form, e.g. Ph, if present</em></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Protein_Data_Bank_format.html" title="Protein Data Bank format (pdb, ent)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="InChI_format.html" title="InChI format (inchi)"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="Overview.html" >Supported File Formats and Options</a> &raquo;</li>
+          <li><a href="Common_cheminformatics.html" >Common cheminformatics</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Open Babel community.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

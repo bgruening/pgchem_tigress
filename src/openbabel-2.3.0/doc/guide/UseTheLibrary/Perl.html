@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Perl &mdash; Open Babel v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open Babel v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Write software using the Open Babel library" href="intro.html" />
+    <link rel="next" title="CSharp and OBDotNet" href="CSharp.html" />
+    <link rel="prev" title="Java" href="Java.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="CSharp.html" title="CSharp and OBDotNet"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Java.html" title="Java"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="intro.html" accesskey="U">Write software using the Open Babel library</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Perl</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#install-the-perl-bindings-globally">Install the Perl bindings globally</a></li>
+<li><a class="reference internal" href="#install-the-perl-bindings-locally">Install the Perl bindings locally</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-chemistry-openbabel">Using Chemistry::OpenBabel</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#output-molecular-weight-for-a-multi-molecule-sdf-file">Output Molecular Weight for a Multi-Molecule SDF File</a></li>
+<li><a class="reference internal" href="#add-and-delete-atoms">Add and Delete Atoms</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Java.html"
+                        title="previous chapter">Java</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="CSharp.html"
+                        title="next chapter">CSharp and OBDotNet</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/UseTheLibrary/Perl.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="perl">
+<h1>Perl<a class="headerlink" href="#perl" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>The Perl bindings can be installed either globally or locally as
+described in the following sections.</p>
+<div class="section" id="install-the-perl-bindings-globally">
+<h3>Install the Perl bindings globally<a class="headerlink" href="#install-the-perl-bindings-globally" title="Permalink to this headline">¶</a></h3>
+<p>(A1) If OpenBabel was not installed in /usr/lib, you need to add
+the location of libopenbabel.so to LD_LIBRARY_PATH. For example,
+on my system libopenbabel.so was installed in /usr/local/lib:</p>
+<div class="highlight-perl"><div class="highlight"><pre><span class="n">export</span> <span class="n">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH:</span><span class="sr">/usr/</span><span class="nb">local</span><span class="o">/</span><span class="n">lib</span>
+</pre></div>
+</div>
+<p>If this is not done correctly, step A2 will give the error message
+&#8220;Can&#8217;t build and link to &#8216;openbabel&#8217;&#8221;.</p>
+<p>(A2) If you want to use OpenBabel from Perl, you now need to
+compile the Perl extension.</p>
+<p>Change directory to &#8216;openbabel-2.2.1/scripts/perl&#8217; and run:</p>
+<div class="highlight-perl"><div class="highlight"><pre><span class="n">perl</span> <span class="n">Makefile</span><span class="o">.</span><span class="n">PL</span>
+<span class="n">make</span>
+<span class="n">make</span> <span class="n">test</span> <span class="c1"># (Optional - this runs a few standard tests)</span>
+</pre></div>
+</div>
+<p>On an MacOSX system, you may get the following error when you run
+&#8216;make&#8217;:</p>
+<div class="highlight-perl"><pre>/usr/bin/ld: flag: -undefined dynamic_lookup can't be used with MACOSX_DEPLOYMENT_TARGET environment variable set to: 10.1</pre>
+</div>
+<p>If this happens, you should set the value of the
+MACOSX_DEPLOYMENT_TARGET environment variable to match the MacOSX
+major version. For example, if you are using MacOSX 10.4.9, set
+MACOSX_DEPLOYMENT_TARGET to 10.4. Now run &#8216;make&#8217; again.</p>
+<p>(A3) To install the Perl bindings globally, as root type:</p>
+<div class="highlight-perl"><div class="highlight"><pre><span class="n">make</span> <span class="n">install</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-the-perl-bindings-locally">
+<h3>Install the Perl bindings locally<a class="headerlink" href="#install-the-perl-bindings-locally" title="Permalink to this headline">¶</a></h3>
+<p>(B1) See Step A1 above.</p>
+<p>(B2) To compile the Perl extension, instead of Step A2 above, use
+the &#8216;PREFIX&#8217; option to Makefile.PL to specify an install location:</p>
+<div class="highlight-perl"><div class="highlight"><pre><span class="n">perl</span> <span class="n">Makefile</span><span class="o">.</span><span class="n">PL</span> <span class="n">PREFIX</span><span class="o">=</span><span class="sr">/home/</span><span class="n">noel</span><span class="o">/</span><span class="n">tree</span>
+<span class="n">make</span>
+<span class="n">make</span> <span class="n">test</span> <span class="c1"># (Optional - this runs a few standard tests)</span>
+</pre></div>
+</div>
+<p>(B3) To install the Perl extension, run the following:</p>
+<div class="highlight-perl"><div class="highlight"><pre><span class="n">make</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>This installs the extension into something like
+/home/noel/tree/lib/perl/5.8.7, so you need to add
+&#8220;/home/noel/tree/lib/perl&#8221; to your PERL5LIB environment variable or
+specify this location in your Perl scripts as follows:</p>
+<div class="highlight-perl"><div class="highlight"><pre><span class="k">use</span> <span class="n">lib</span> <span class="s">&quot;/home/noel/tree/lib/perl&quot;</span><span class="p">;</span> <span class="c1"># Must come before &quot;use Chemistry::OpenBabel;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="using-chemistry-openbabel">
+<h2>Using Chemistry::OpenBabel<a class="headerlink" href="#using-chemistry-openbabel" title="Permalink to this headline">¶</a></h2>
+<p>The Chemistry::OpenBabel module is designed to allow Perl scripts
+to use the C++ Open Babel library. The bindings are generated using
+the SWIG package and provides access to almost all of the Open
+Babel interfaces via Perl, including the base classes OBMol,
+OBAtom, OBBond, and OBResidue, as well as the conversion framework
+OBConversion.</p>
+<div class="sidebar">
+<p class="first sidebar-title">PerlMol</p>
+<p class="last">For developing chemistry in Perl, you should also look at the <a class="reference external" href="http://perlmol.org/">PerlMol</a> project.</p>
+</div>
+<p>As such, essentially any call in the C++ API is available to Perl
+access with very little difference in syntax. This guide is
+designed to give examples of common Perl syntax for
+Chemistry::OpenBabel and pointers to the appropriate sections of
+the <a class="reference external" href="http://openbabel.sourceforge.net/api/">API documentation</a>.</p>
+<p>For more examples of using Open Babel inside Perl, see the
+<a class="reference external" href="/wiki/Developer:Perl_Tutorial">developer Perl tutorial</a>.</p>
+<p>The example script below creates atoms and bonds one-by-one using
+the OBMol, OBAtom, and OBBond classes.</p>
+<div class="highlight-perl"><div class="highlight"><pre><span class="c1">#!/usr/bin/perl</span>
+
+<span class="k">use</span> <span class="nn">Chemistry::</span><span class="n">OpenBabel</span><span class="p">;</span>
+
+<span class="k">my</span> <span class="nv">$obMol</span> <span class="o">=</span> <span class="k">new</span> <span class="nn">Chemistry::OpenBabel::</span><span class="n">OBMol</span><span class="p">;</span>
+
+<span class="nv">$obMol</span><span class="o">-&gt;</span><span class="n">NewAtom</span><span class="p">();</span>
+<span class="nv">$numAtoms</span> <span class="o">=</span> <span class="nv">$obMol</span><span class="o">-&gt;</span><span class="n">NumAtoms</span><span class="p">();</span> <span class="c1"># now 1 atom</span>
+
+<span class="k">my</span> <span class="nv">$atom1</span> <span class="o">=</span> <span class="nv">$obMol</span><span class="o">-&gt;</span><span class="n">GetAtom</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1"># atoms indexed from 1</span>
+<span class="nv">$atom1</span><span class="o">-&gt;</span><span class="n">SetVector</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
+<span class="nv">$atom1</span><span class="o">-&gt;</span><span class="n">SetAtomicNum</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span> <span class="c1"># carbon atom</span>
+
+<span class="nv">$obMol</span><span class="o">-&gt;</span><span class="n">NewAtom</span><span class="p">();</span>
+<span class="nv">$obMol</span><span class="o">-&gt;</span><span class="n">AddBond</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="c1"># bond between atoms 1 and 2 with bond order 1</span>
+<span class="nv">$numBonds</span> <span class="o">=</span> <span class="nv">$obMol</span><span class="o">-&gt;</span><span class="n">NumBonds</span><span class="p">();</span> <span class="c1"># now 1 bond</span>
+
+<span class="nv">$obMol</span><span class="o">-&gt;</span><span class="n">Clear</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>More commonly, Open Babel can be used to read in molecules using
+the OBConversion framework. The following script reads in molecular
+information (a SMI file) from a string, adds hydrogens, and writes
+out an MDL file as a string.</p>
+<div class="highlight-perl"><div class="highlight"><pre><span class="c1">#!/usr/bin/perl</span>
+
+<span class="k">use</span> <span class="nn">Chemistry::</span><span class="n">OpenBabel</span><span class="p">;</span>
+
+<span class="k">my</span> <span class="nv">$obMol</span> <span class="o">=</span> <span class="k">new</span> <span class="nn">Chemistry::OpenBabel::</span><span class="n">OBMol</span><span class="p">;</span>
+<span class="k">my</span> <span class="nv">$obConversion</span> <span class="o">=</span> <span class="k">new</span> <span class="nn">Chemistry::OpenBabel::</span><span class="n">OBConversion</span><span class="p">;</span>
+<span class="nv">$obConversion</span><span class="o">-&gt;</span><span class="n">SetInAndOutFormats</span><span class="p">(</span><span class="s">&quot;smi&quot;</span><span class="p">,</span> <span class="s">&quot;mdl&quot;</span><span class="p">);</span>
+<span class="nv">$obConversion</span><span class="o">-&gt;</span><span class="n">ReadString</span><span class="p">(</span><span class="nv">$obMol</span><span class="p">,</span> <span class="s">&quot;C1=CC=CS1&quot;</span><span class="p">);</span>
+
+<span class="nv">$numAtoms</span> <span class="o">=</span> <span class="nv">$obMol</span><span class="o">-&gt;</span><span class="n">NumAtoms</span><span class="p">();</span> <span class="c1"># now 5 atoms</span>
+
+<span class="nv">$obMol</span><span class="o">-&gt;</span><span class="n">AddHydrogens</span><span class="p">();</span>
+<span class="nv">$numAtoms</span> <span class="o">=</span> <span class="nv">$obMol</span><span class="o">-&gt;</span><span class="n">NumAtoms</span><span class="p">();</span> <span class="c1"># now 9 atoms</span>
+
+<span class="k">my</span> <span class="nv">$outMDL</span> <span class="o">=</span> <span class="nv">$obConversion</span><span class="o">-&gt;</span><span class="n">WriteString</span><span class="p">(</span><span class="nv">$obMol</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The following script writes out a file using a filename, rather
+than reading and writing to a Perl string.</p>
+<div class="highlight-perl"><div class="highlight"><pre><span class="c1">#!/usr/bin/perl</span>
+
+<span class="k">use</span> <span class="nn">Chemistry::</span><span class="n">OpenBabel</span><span class="p">;</span>
+
+<span class="k">my</span> <span class="nv">$obMol</span> <span class="o">=</span> <span class="k">new</span> <span class="nn">Chemistry::OpenBabel::</span><span class="n">OBMol</span><span class="p">;</span>
+<span class="k">my</span> <span class="nv">$obConversion</span> <span class="o">=</span> <span class="k">new</span> <span class="nn">Chemistry::OpenBabel::</span><span class="n">OBConversion</span><span class="p">;</span>
+<span class="nv">$obConversion</span><span class="o">-&gt;</span><span class="n">SetInAndOutFormats</span><span class="p">(</span><span class="s">&quot;pdb&quot;</span><span class="p">,</span> <span class="s">&quot;mol2&quot;</span><span class="p">);</span>
+<span class="nv">$obConversion</span><span class="o">-&gt;</span><span class="n">ReadFile</span><span class="p">(</span><span class="nv">$obMol</span><span class="p">,</span> <span class="s">&quot;1ABC.pdb&quot;</span><span class="p">);</span>
+
+<span class="nv">$obMol</span><span class="o">-&gt;</span><span class="n">AddHydrogens</span><span class="p">();</span>
+
+<span class="k">print</span> <span class="s">&quot;# of atoms: $obMol-&gt;NumAtoms()&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="s">&quot;# of bonds: $obMol-&gt;NumBonds()&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="s">&quot;# of residues: $obMol-&gt;NumResidues()&quot;</span><span class="p">;</span>
+
+<span class="nv">$obConversion</span><span class="o">-&gt;</span><span class="n">WriteFile</span><span class="p">(</span><span class="nv">$obMol</span><span class="p">,</span> <span class="s">&quot;1abc.mol2&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="output-molecular-weight-for-a-multi-molecule-sdf-file">
+<h3>Output Molecular Weight for a Multi-Molecule SDF File<a class="headerlink" href="#output-molecular-weight-for-a-multi-molecule-sdf-file" title="Permalink to this headline">¶</a></h3>
+<p>Let&#8217;s say we want to print out the molecular weights of every molecule in an SD file. Why? Well, we might want to plot a histogram of the distribution, or see whether the average of the distribution is significantly different (in the statistical sense) compared to another SD file.</p>
+<div class="highlight-perl"><div class="highlight"><pre><span class="k">use</span> <span class="nn">Chemistry::</span><span class="n">OpenBabel</span><span class="p">;</span>
+
+<span class="k">my</span> <span class="nv">$obconversion</span> <span class="o">=</span> <span class="k">new</span> <span class="nn">Chemistry::OpenBabel::</span><span class="n">OBConversion</span><span class="p">;</span>
+<span class="nv">$obconversion</span><span class="o">-&gt;</span><span class="n">SetInFormat</span><span class="p">(</span><span class="s">&quot;sdf&quot;</span><span class="p">);</span>
+<span class="k">my</span> <span class="nv">$obmol</span> <span class="o">=</span> <span class="k">new</span> <span class="nn">Chemistry::OpenBabel::</span><span class="n">OBMol</span><span class="p">;</span>
+
+<span class="k">my</span> <span class="nv">$notatend</span> <span class="o">=</span> <span class="nv">$obconversion</span><span class="o">-&gt;</span><span class="n">ReadFile</span><span class="p">(</span><span class="nv">$obmol</span><span class="p">,</span> <span class="s">&quot;../xsaa.sdf&quot;</span><span class="p">);</span>
+<span class="k">while</span> <span class="p">(</span><span class="nv">$notatend</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">print</span> <span class="nv">$obmol</span><span class="o">-&gt;</span><span class="n">GetMolWt</span><span class="p">(),</span> <span class="s">&quot;\n&quot;</span><span class="p">;</span>
+    <span class="nv">$obmol</span><span class="o">-&gt;</span><span class="n">Clear</span><span class="p">();</span>
+    <span class="nv">$notatend</span> <span class="o">=</span> <span class="nv">$obconversion</span><span class="o">-&gt;</span><span class="n">Read</span><span class="p">(</span><span class="nv">$obmol</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="add-and-delete-atoms">
+<h3>Add and Delete Atoms<a class="headerlink" href="#add-and-delete-atoms" title="Permalink to this headline">¶</a></h3>
+<p>This script shows an example of deleting and modifying atoms to transform one structure to a related one. It operates on a set of substituted thiophenes, deletes the sulfur atom (note that R1 and R2 may contain sulfur, so the SMARTS pattern is designed to constrain to the ring sulfur), etc. The result is a substituted ethylene, as indicated in the diagrams.</p>
+<img alt="../_images/Tutorial-Thiophene.png" src="../_images/Tutorial-Thiophene.png" />
+<img alt="../_images/Tutorial-Transform.png" src="../_images/Tutorial-Transform.png" />
+<div class="highlight-perl"><div class="highlight"><pre><span class="k">use</span> <span class="nn">Chemistry::</span><span class="n">OpenBabel</span><span class="p">;</span>
+
+<span class="k">my</span> <span class="nv">$obMol</span> <span class="o">=</span> <span class="k">new</span> <span class="nn">Chemistry::OpenBabel::</span><span class="n">OBMol</span><span class="p">;</span>
+<span class="k">my</span> <span class="nv">$obConversion</span> <span class="o">=</span> <span class="k">new</span> <span class="nn">Chemistry::OpenBabel::</span><span class="n">OBConversion</span><span class="p">;</span>
+<span class="k">my</span> <span class="nv">$filename</span> <span class="o">=</span> <span class="nb">shift</span> <span class="nv">@ARGV</span><span class="p">;</span>
+
+<span class="nv">$obConversion</span><span class="o">-&gt;</span><span class="n">SetInAndOutFormats</span><span class="p">(</span><span class="s">&quot;xyz&quot;</span><span class="p">,</span> <span class="s">&quot;mol&quot;</span><span class="p">);</span>
+<span class="nv">$obConversion</span><span class="o">-&gt;</span><span class="n">ReadFile</span><span class="p">(</span><span class="nv">$obMol</span><span class="p">,</span> <span class="nv">$filename</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="nv">$obMol</span><span class="o">-&gt;</span><span class="n">NumAtoms</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nv">$atom</span> <span class="o">=</span> <span class="nv">$obMol</span><span class="o">-&gt;</span><span class="n">GetAtom</span><span class="p">(</span><span class="nv">$_</span><span class="p">);</span>
+    <span class="c1"># look to see if this atom is a thiophene sulfur atom</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$atom</span><span class="o">-&gt;</span><span class="n">MatchesSMARTS</span><span class="p">(</span><span class="s">&quot;[#16D2]([#6D3H1])[#6D3H1]&quot;</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nv">$sulfurIdx</span> <span class="o">=</span> <span class="nv">$atom</span><span class="o">-&gt;</span><span class="n">GetIdx</span><span class="p">();</span>
+    <span class="c1"># see if this atom is one of the carbon atoms bonded to a thiophene sulfur</span>
+    <span class="p">}</span> <span class="k">elsif</span> <span class="p">(</span><span class="nv">$atom</span><span class="o">-&gt;</span><span class="n">MatchesSMARTS</span><span class="p">(</span><span class="s">&quot;[#6D3H1]([#16D2][#6D3H1])[#6]&quot;</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$c2Idx</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="nv">$c2Idx</span> <span class="o">=</span> <span class="nv">$atom</span><span class="o">-&gt;</span><span class="n">GetIdx</span><span class="p">();</span> <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span><span class="nv">$c5Idx</span> <span class="o">=</span> <span class="nv">$atom</span><span class="o">-&gt;</span><span class="n">GetIdx</span><span class="p">();</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># Get the actual atom objects -- indexing will change as atoms are added and deleted!</span>
+<span class="nv">$sulfurAtom</span> <span class="o">=</span> <span class="nv">$obMol</span><span class="o">-&gt;</span><span class="n">GetAtom</span><span class="p">(</span><span class="nv">$sulfurIdx</span><span class="p">);</span>
+<span class="nv">$c2Atom</span> <span class="o">=</span> <span class="nv">$obMol</span><span class="o">-&gt;</span><span class="n">GetAtom</span><span class="p">(</span><span class="nv">$c2Idx</span><span class="p">);</span>
+<span class="nv">$c5Atom</span> <span class="o">=</span> <span class="nv">$obMol</span><span class="o">-&gt;</span><span class="n">GetAtom</span><span class="p">(</span><span class="nv">$c5Idx</span><span class="p">);</span>
+
+<span class="nv">$obMol</span><span class="o">-&gt;</span><span class="n">DeleteAtom</span><span class="p">(</span><span class="nv">$sulfurAtom</span><span class="p">);</span>
+
+<span class="nv">$obMol</span><span class="o">-&gt;</span><span class="n">DeleteHydrogens</span><span class="p">(</span><span class="nv">$c2Atom</span><span class="p">);</span>
+<span class="nv">$obMol</span><span class="o">-&gt;</span><span class="n">DeleteHydrogens</span><span class="p">(</span><span class="nv">$c5Atom</span><span class="p">);</span>
+
+<span class="nv">$c2Atom</span><span class="o">-&gt;</span><span class="n">SetAtomicNum</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nv">$c5Atom</span><span class="o">-&gt;</span><span class="n">SetAtomicNum</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="nv">$obConversion</span><span class="o">-&gt;</span><span class="n">WriteFile</span><span class="p">(</span><span class="nv">$obMol</span><span class="p">,</span> <span class="s">&quot;$filename.mol&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="CSharp.html" title="CSharp and OBDotNet"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Java.html" title="Java"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="intro.html" >Write software using the Open Babel library</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Open Babel community.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

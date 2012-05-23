@@ -1,0 +1,148 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Adding plugins &mdash; Open Babel v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open Babel v2.3.0 documentation" href="../index.html" />
+    <link rel="next" title="How to add a new file format" href="AddFileFormat.html" />
+    <link rel="prev" title="Software Archaeology" href="../Contributing/SoftwareArchaeology.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="AddFileFormat.html" title="How to add a new file format"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Contributing/SoftwareArchaeology.html" title="Software Archaeology"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../Contributing/SoftwareArchaeology.html"
+                        title="previous chapter">Software Archaeology</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="AddFileFormat.html"
+                        title="next chapter">How to add a new file format</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/WritePlugins/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="adding-plugins">
+<h1>Adding plugins<a class="headerlink" href="#adding-plugins" title="Permalink to this headline">¶</a></h1>
+<p>Open Babel uses a plugin architecture for file formats, &#8216;operations&#8217;, charge models, forcefields, fingerprints and descriptors. The general idea behind plugins is described on <a class="reference external" href="http://en.wikipedia.org/wiki/Plug-in_%28computing%29">Wikipedia</a>. When you start an application that uses the Open Babel library, it searches for available plugins and loads them. This means, for example, that plugins could be distributed separately to the Open Babel distribution.</p>
+<p>In fact, even the plugin types are themselves plugins; this makes it easy to add new categories of plugin. The different types of plugins can be listed using:</p>
+<div class="highlight-python"><pre>C:\&gt;babel -L
+charges
+descriptors
+fingerprints
+forcefields
+formats
+loaders
+ops</pre>
+</div>
+<p>To list the plugins of a particular type, for example, charge models, just specify the plugin type:</p>
+<div class="highlight-python"><pre>C:\&gt;babel -L charges
+gasteiger    Assign Gasteiger-Marsili sigma partial charges
+mmff94       Assign MMFF94 partial charges
+qeq    Assign QEq (charge equilibration) partial charges (Rappe and Goddard, 199
+1)
+qtpie    Assign QTPIE (charge transfer, polarization and equilibration) partial
+charges (Chen and Martinez, 2007)</pre>
+</div>
+<p>To add a new plugin of any type, the general method is very simple:</p>
+<ol class="arabic simple">
+<li>Make a copy of an existing plugin .cpp file</li>
+<li>Edit it so that it does what you want</li>
+<li>Add the name of the .cpp file to the appropriate <tt class="file docutils literal"><span class="pre">CMakeLists.txt</span></tt>.</li>
+</ol>
+<p>The following sections describe in depth how to add support for a new file format or operation to Open Babel. Remember that if you do add a new plugin, please contribute the code back to the Open Babel project.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="AddFileFormat.html">How to add a new file format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AddingNewOptions.html">Adding new operations and options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="AddingNewOptions.html#the-obop-class">The OBOp class</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="AddFileFormat.html" title="How to add a new file format"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Contributing/SoftwareArchaeology.html" title="Software Archaeology"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Open Babel community.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

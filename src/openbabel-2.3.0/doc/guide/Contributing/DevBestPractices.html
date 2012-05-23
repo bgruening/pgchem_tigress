@@ -1,0 +1,178 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Developing Open Babel &mdash; Open Babel v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open Babel v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Contributing to Open Babel" href="Contributing.html" />
+    <link rel="next" title="Developer Resources" href="DeveloperResources.html" />
+    <link rel="prev" title="Overview" href="Overview.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="DeveloperResources.html" title="Developer Resources"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Overview.html" title="Overview"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="Contributing.html" accesskey="U">Contributing to Open Babel</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Developing Open Babel</a><ul>
+<li><a class="reference internal" href="#grabbing-the-development-code">Grabbing the Development Code</a></li>
+<li><a class="reference internal" href="#monitoring-progress">Monitoring Progress</a></li>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+<li><a class="reference internal" href="#code-formatting">Code Formatting</a></li>
+<li><a class="reference internal" href="#error-handling">Error Handling</a></li>
+<li><a class="reference internal" href="#patches-and-changesets">Patches and Changesets</a></li>
+<li><a class="reference internal" href="#the-changelog">The ChangeLog</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Overview.html"
+                        title="previous chapter">Overview</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="DeveloperResources.html"
+                        title="next chapter">Developer Resources</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/Contributing/DevBestPractices.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="developing-open-babel">
+<h1>Developing Open Babel<a class="headerlink" href="#developing-open-babel" title="Permalink to this headline">¶</a></h1>
+<p>Due to its open nature of its development, Open Babel contains code contributed by a wide variety of developers (see <em class="xref std std-ref">contributors</em>). This section describes some general guidelines and &#8220;best practices&#8221; for code developers.</p>
+<div class="section" id="grabbing-the-development-code">
+<h2>Grabbing the Development Code<a class="headerlink" href="#grabbing-the-development-code" title="Permalink to this headline">¶</a></h2>
+<p>The source code for Open Babel is maintained via the Subversion version control system. You can browse the latest source code at Open Babel&#8217;s <a class="reference external" href="http://www.sf.net/projects/openbabel">SourceForge</a> site.</p>
+<p>To download and update the source code itself, please see the instructions on using Subversion with Open Babel (<em class="xref std std-ref">subversion</em>).</p>
+</div>
+<div class="section" id="monitoring-progress">
+<h2>Monitoring Progress<a class="headerlink" href="#monitoring-progress" title="Permalink to this headline">¶</a></h2>
+<p>Developers should keep track of changes made by others. Like most open source projects, development occurs in many places by many contributors. Therefore it is important to keep up-to-date with your code repository and keep on top of changes made by others. A bug you just found in the latest release may have already been fixed by someone else.</p>
+<blockquote>
+<ul class="simple">
+<li><a class="reference external" href="http://cia.navi.cx/stats/project/OpenBabel">CIA Stats</a> on Open Babel (provides a webpage and RSS feed for every change)</li>
+<li><a class="reference external" href="http://lists.sourceforge.net/lists/listinfo/openbabel-updates">OpenBabel-Updates</a> mailing list (receives an e-mail message on every change)</li>
+</ul>
+</blockquote>
+<p>In general, if you find that a recent update by another developer has introduced bugs or broken the code, please bring it up with them ASAP. We have a policy of &#8220;if you break it, you fix it&#8221; to keep the source code repository always in a working state.</p>
+<p>Many of the developers use the current development snapshots for their daily use. This is sometimes called <a class="reference external" href="http://en.wikipedia.org/wiki/Eat_one%27s_own_dog_food">eating your dog food</a> and is part of the general testing procedures for Open Babel.</p>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>As an open source project, code must be documented, both for other developers to use the API and for others to follow your code.</p>
+<p>For more information, please see <a class="reference internal" href="Documentation.html#documentation"><em>Documentation</em></a>.</p>
+</div>
+<div class="section" id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>Testing is extremely important. New functions should have individual unit tests as older code is slowly added to the test suite. Because of the wide use of Open Babel, code is (and should be) thoroughly tested before release.</p>
+<p>Releases may be imperfect and will likely contain bugs. However, increased testing improves code quality and makes life easier for everyone. For more information, see <a class="reference internal" href="Testing.html#testing"><em>Testing the Code</em></a>.</p>
+</div>
+<div class="section" id="code-formatting">
+<h2>Code Formatting<a class="headerlink" href="#code-formatting" title="Permalink to this headline">¶</a></h2>
+<p>It seems like a minor point, but the format of your code is important. As open source software, your code is read by many, many people.</p>
+<p>Different contributions have often had different indentation styles. Simply making the code indentation consistent across an entire file makes the code easier to read.</p>
+</div>
+<div class="section" id="error-handling">
+<h2>Error Handling<a class="headerlink" href="#error-handling" title="Permalink to this headline">¶</a></h2>
+<p>The general philosophy of the Open Babel project is to attempt to gracefully recover from error conditions. Depending on the severity of the error, a message may or may not be sent to the user &#8211; users can filter out developer debugging messages and minor errors, but should be notified of significant problems.</p>
+<p>For more information, please see <em class="xref std std-ref">handling_errors</em>.</p>
+</div>
+<div class="section" id="patches-and-changesets">
+<h2>Patches and Changesets<a class="headerlink" href="#patches-and-changesets" title="Permalink to this headline">¶</a></h2>
+<p>We&#8217;re human&#8211;it&#8217;s much easier to understand exactly what a patch is doing if it&#8217;s not trying to add 20 features or fix 20 bugs at once. (Hopefully there won&#8217;t be a need to fix 20 bugs!) If you want to add several features or fix several bugs, break the patch up into one for each request. The faster someone can understand your patch, the faster it will go into the source. Everyone benefits from faster, quality development.</p>
+<p>Similarly, it&#8217;s sometimes necessary to revert the code to an older version because of bugs. Each set of changes should only touch as few files as are needed. This makes it easier for others to review your changes and undo them if necessarily. (Again, hopefully there&#8217;s never a need, but this is certainly a &#8220;best practice&#8221; to make life easier for everyone.)</p>
+</div>
+<div class="section" id="the-changelog">
+<h2>The ChangeLog<a class="headerlink" href="#the-changelog" title="Permalink to this headline">¶</a></h2>
+<p>The ChangeLog file is used to maintain an abbreviated history of changes to the code by all users. Please add a ChangeLog entry to any patch and make sure to keep it up to date as you commit changes to the source code. The <a class="reference external" href="http://www.gnu.org/software/guile/changelogs/guile-changelogs_3.html|format">format</a> should be mostly self-explanatory.</p>
+<p>In particular, please include a notation of any file you have changed. This makes it easy for others to track which changes may have added new functionality, fixed bugs, or inadvertently caused errors.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="DeveloperResources.html" title="Developer Resources"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Overview.html" title="Overview"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="Contributing.html" >Contributing to Open Babel</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Open Babel community.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,254 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>SVG depiction (svg) &mdash; Open Babel v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open Babel v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Images" href="Images.html" />
+    <link rel="next" title="2D drawing" href="2D_drawing.html" />
+    <link rel="prev" title="POV-Ray input format (pov)" href="POV-Ray_input_format.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="2D_drawing.html" title="2D drawing"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="POV-Ray_input_format.html" title="POV-Ray input format (pov)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="Overview.html" >Supported File Formats and Options</a> &raquo;</li>
+          <li><a href="Images.html" accesskey="U">Images</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">SVG depiction (svg)</a><ul>
+<li><a class="reference internal" href="#write-options">Write Options</a></li>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="POV-Ray_input_format.html"
+                        title="previous chapter">POV-Ray input format (pov)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="2D_drawing.html"
+                        title="next chapter">2D drawing</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/FileFormats/SVG_depiction.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="svg-depiction-svg">
+<span id="svg-depiction"></span><h1>SVG depiction (svg)<a class="headerlink" href="#svg-depiction-svg" title="Permalink to this headline">¶</a></h1>
+<p><strong>Scalable Vector Graphics 2D rendering of molecular structure.</strong></p>
+<p>Single molecules are displayed at a fixed scale, as in normal diagrams,
+but multiple molecules are displayed in a table which expands to fill
+the containing element, such as a browser window.</p>
+<p>Multiple molecules are displayed in a grid of dimensions specified by
+the <tt class="docutils literal"><span class="pre">-xr</span></tt> and <tt class="docutils literal"><span class="pre">-xc</span></tt> options (number of rows and columns respectively).
+When displayed in an appropriate program, e.g. Firefox, there is
+javascript support for zooming (with the mouse wheel)
+and panning (by dragging with the left mouse button).</p>
+<p>If both <tt class="docutils literal"><span class="pre">-xr</span></tt> and <tt class="docutils literal"><span class="pre">-xc</span></tt> are specified, they define the maximum number of
+molecules that are displayed.
+If only one of them is displayed, then the other is calculated so that
+ALL the molecules are displayed.
+If neither are specified, all the molecules are output in an
+approximately square table.</p>
+<p>By default, 2D atom coordinates are generated (using gen2D) unless they
+are already present. This can be slow with a large number of molecules.
+(3D coordinates are ignored.) Include <tt class="docutils literal"><span class="pre">--gen2D</span></tt> explicitly if you wish
+any existing 2D coordinates to be recalculated.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is a write-only format.</p>
+</div>
+<div class="section" id="write-options">
+<h2>Write Options<a class="headerlink" href="#write-options" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">u</span></kbd></td>
+<td><p class="first"><em>no element-specific atom coloring</em></p>
+<p class="last">Use this option to produce a black and white diagram</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">U</span></kbd></td>
+<td><p class="first"><em>do not use internally-specified color</em></p>
+<p class="last">e.g. atom color read from cml or generated by internal code</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">b</span></kbd></td>
+<td><p class="first"><em>black background</em></p>
+<p class="last">The default is white. The atom colors work with both.</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">C</span></kbd></td>
+<td><p class="first"><em>do not draw terminal C (and attached H) explicitly</em></p>
+<p class="last">The default is to draw all hetero atoms and terminal C explicitly,
+together with their attched hydrogens.</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">a</span></kbd></td>
+<td><p class="first"><em>draw all carbon atoms</em></p>
+<p class="last">So propane would display as H3C-CH2-CH3</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">d</span></kbd></td>
+<td><em>do not display molecule name</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">e</span></kbd></td>
+<td><p class="first"><em>embed molecule as CML</em></p>
+<p class="last">OpenBabel can read the resulting svg file as a cml file.</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">p <var>&lt;num&gt;</var></span></kbd></td>
+<td><em>scale to bondlength in pixels(single mol only)</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">c <var>&lt;num&gt;</var></span></kbd></td>
+<td><em>number of columns in table</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">r <var>&lt;num&gt;</var></span></kbd></td>
+<td><em>number of rows in table</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">N <var>&lt;num&gt;</var></span></kbd></td>
+<td><em>max number objects to be output</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">l</span></kbd></td>
+<td><em>draw grid lines</em></td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">i</span></kbd></td>
+<td><p class="first"><em>add index to each atom</em></p>
+<p class="last">These indices are those in sd or mol files and correspond to the
+order of atoms in a SMILES string.</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">j</span></kbd></td>
+<td><p class="first"><em>do not embed javascript</em></p>
+<p class="last">Javascript is not usually embedded if there is one one molecule,
+but it is if the rows and columns have been specified as 1: <tt class="docutils literal"><span class="pre">-xr1</span> <span class="pre">-xc1</span></tt></p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">A</span></kbd></td>
+<td><p class="first"><em>display aliases, if present</em></p>
+<p>This applies to structures which have an alternative, usually
+shorter, representation already present. This might have been input
+from an A or S superatom entry in an sd or mol file, or can be
+generated using the &#8211;genalias option. For example:</p>
+<div class="highlight-python"><pre>echo "c1cc(C=O)ccc1C(=O)O" | babel -ismi out.svg --genalias -xA</pre>
+</div>
+<p class="last">would add a aliases COOH and CHO to represent the carboxyl and
+aldehyde groups and would display them as such in the svg diagram.
+The aliases which are recognized are in data/superatom.txt, which
+can be edited.</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">x</span></kbd></td>
+<td><p class="first"><em>omit XML declaration (not displayed in GUI)</em></p>
+<p class="last">Useful if the output is to be embedded in another xml file.</p>
+</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<p>If the input molecule(s) contain explicit hydrogen, you could consider
+improving the appearance of the diagram by adding an option <tt class="docutils literal"><span class="pre">-d</span></tt> to make
+it implicit. Hydrogen on hetero atoms and on explicitly drawn C is
+always shown.
+For example, if input.smi had 10 molecules:</p>
+<div class="highlight-python"><pre>babel input.smi out.svg -xbCe</pre>
+</div>
+<p>would produce a svg file with a black background, with no explict
+terminal carbon, and with an embedded cml representation of each
+molecule. The structures would be in two rows of four and one row
+of two. Note that in babel (but not obabel) it is possible to
+concatenate multiple single-letter options (with a single preceding
+<tt class="docutils literal"><span class="pre">-x</span></tt>).</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="2D_drawing.html" title="2D drawing"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="POV-Ray_input_format.html" title="POV-Ray input format (pov)"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="Overview.html" >Supported File Formats and Options</a> &raquo;</li>
+          <li><a href="Images.html" >Images</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Open Babel community.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

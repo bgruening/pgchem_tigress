@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The openbabel module &mdash; Open Babel v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open Babel v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Python" href="Python.html" />
+    <link rel="next" title="Pybel" href="Python_Pybel.html" />
+    <link rel="prev" title="Install Python bindings" href="PythonInstall.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Python_Pybel.html" title="Pybel"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="PythonInstall.html" title="Install Python bindings"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="intro.html" >Write software using the Open Babel library</a> &raquo;</li>
+          <li><a href="Python.html" accesskey="U">Python</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">The openbabel module</a><ul>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#using-iterators">Using iterators</a></li>
+<li><a class="reference internal" href="#calling-a-method-requiring-an-array-of-c-doubles">Calling a method requiring an array of C doubles</a></li>
+<li><a class="reference internal" href="#accessing-obpairdata-and-obunitcell">Accessing OBPairData and OBUnitCell</a></li>
+<li><a class="reference internal" href="#combining-numpy-with-open-babel">Combining numpy with Open Babel</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="PythonInstall.html"
+                        title="previous chapter">Install Python bindings</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Python_Pybel.html"
+                        title="next chapter">Pybel</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/UseTheLibrary/PythonDoc.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="the-openbabel-module">
+<h1>The openbabel module<a class="headerlink" href="#the-openbabel-module" title="Permalink to this headline">¶</a></h1>
+<p>The <strong>openbabel</strong> module provides direct access to the C++ Open
+Babel library from Python. This binding is generated using the SWIG
+package and provides access to almost all of the Open Babel
+interfaces via Python, including the base classes OBMol, OBAtom,
+OBBond, and OBResidue, as well as the conversion framework
+OBConversion. As such, essentially any call in the C++ API is
+available to Python scripts with very little difference in syntax.
+As a result, the principal documentation is the
+<a class="reference external" href="http://openbabel.org/api">Open Babel C++ API documentation</a>.</p>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Here we give some examples of common Python syntax for the
+<tt class="docutils literal"><span class="pre">openbabel</span></tt> module and pointers to the appropriate sections of
+the API documentation.</p>
+<p>The example script below creates atoms and bonds one-by-one using
+the
+<a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBMol.shtml">OBMol</a>, <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBAtom.shtml">OBAtom</a>, and <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBBond.shtml">OBBond</a> classes.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">openbabel</span>
+
+<span class="n">mol</span> <span class="o">=</span> <span class="n">openbabel</span><span class="o">.</span><span class="n">OBMol</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">&#39;Should print 0 (atoms)&#39;</span>
+<span class="k">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">NumAtoms</span><span class="p">()</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">NewAtom</span><span class="p">()</span>
+<span class="n">a</span><span class="o">.</span><span class="n">SetAtomicNum</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>   <span class="c"># carbon atom</span>
+<span class="n">a</span><span class="o">.</span><span class="n">SetVector</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span> <span class="c"># coordinates</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">NewAtom</span><span class="p">()</span>
+<span class="n">mol</span><span class="o">.</span><span class="n">AddBond</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>   <span class="c"># atoms indexed from 1</span>
+<span class="k">print</span> <span class="s">&#39;Should print 2 (atoms)&#39;</span>
+<span class="k">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">NumAtoms</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">&#39;Should print 1 (bond)&#39;</span>
+<span class="k">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">NumBonds</span><span class="p">()</span>
+
+<span class="n">mol</span><span class="o">.</span><span class="n">Clear</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>More commonly, Open Babel can be used to read in molecules using
+the <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBConversion.shtml">OBConversion</a>
+framework. The following script reads in molecular information (a
+SMI file) from a string, adds hydrogens, and writes out an MDL file
+as a string.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">openbabel</span>
+
+<span class="n">obConversion</span> <span class="o">=</span> <span class="n">openbabel</span><span class="o">.</span><span class="n">OBConversion</span><span class="p">()</span>
+<span class="n">obConversion</span><span class="o">.</span><span class="n">SetInAndOutFormats</span><span class="p">(</span><span class="s">&quot;smi&quot;</span><span class="p">,</span> <span class="s">&quot;mdl&quot;</span><span class="p">)</span>
+
+<span class="n">mol</span> <span class="o">=</span> <span class="n">openbabel</span><span class="o">.</span><span class="n">OBMol</span><span class="p">()</span>
+<span class="n">obConversion</span><span class="o">.</span><span class="n">ReadString</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="s">&quot;C1=CC=CS1&quot;</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s">&#39;Should print 5 (atoms)&#39;</span>
+<span class="k">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">NumAtoms</span><span class="p">()</span>
+
+<span class="n">mol</span><span class="o">.</span><span class="n">AddHydrogens</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">&#39;Should print 9 (atoms) after adding hydrogens&#39;</span>
+<span class="k">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">NumAtoms</span><span class="p">()</span>
+
+<span class="n">outMDL</span> <span class="o">=</span> <span class="n">obConversion</span><span class="o">.</span><span class="n">WriteString</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The following script writes out a file using a filename, rather
+than reading and writing to a Python string.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">openbabel</span>
+
+<span class="n">obConversion</span> <span class="o">=</span> <span class="n">openbabel</span><span class="o">.</span><span class="n">OBConversion</span><span class="p">()</span>
+<span class="n">obConversion</span><span class="o">.</span><span class="n">SetInAndOutFormats</span><span class="p">(</span><span class="s">&quot;pdb&quot;</span><span class="p">,</span> <span class="s">&quot;mol2&quot;</span><span class="p">)</span>
+
+<span class="n">mol</span> <span class="o">=</span> <span class="n">openbabel</span><span class="o">.</span><span class="n">OBMol</span><span class="p">()</span>
+<span class="n">obConversion</span><span class="o">.</span><span class="n">ReadFile</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="s">&quot;1ABC.pdb.gz&quot;</span><span class="p">)</span>   <span class="c"># Open Babel will uncompress automatically</span>
+
+<span class="n">mol</span><span class="o">.</span><span class="n">AddHydrogens</span><span class="p">()</span>
+
+<span class="k">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">NumAtoms</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">NumBonds</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">NumResidues</span><span class="p">()</span>
+
+<span class="n">obConversion</span><span class="o">.</span><span class="n">WriteFile</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="s">&#39;1abc.mol2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-iterators">
+<h2>Using iterators<a class="headerlink" href="#using-iterators" title="Permalink to this headline">¶</a></h2>
+<p>A number of Open Babel toolkit classes provide iterators over
+various objects; these classes are identifiable by the suffix
+&#8220;Iter&#8221; in the
+<a class="reference external" href="http://openbabel.sourceforge.net/api/current/annotated.shtml">list of toolkit classes</a>
+in the API:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://openbabel.sourceforge.net/api/current/classOpenBabel_1_1OBAtomAtomIter.shtml">OBAtomAtomIter</a>
+and
+<a class="reference external" href="http://openbabel.sourceforge.net/api/current/classOpenBabel_1_1OBAtomBondIter.shtml">OBAtomBondIter</a>
+- given an OBAtom, iterate over all neighboring OBAtoms or OBBonds</li>
+<li><a class="reference external" href="http://openbabel.sourceforge.net/api/current/classOpenBabel_1_1OBMolAtomIter.shtml">OBMolAtomIter</a>,
+<a class="reference external" href="http://openbabel.sourceforge.net/api/current/classOpenBabel_1_1OBMolBondIter.shtml">OBMolBondIter</a>,
+<a class="reference external" href="http://openbabel.sourceforge.net/api/current/classOpenBabel_1_1OBMolAngleIter.shtml">OBMolAngleIter</a>,
+<a class="reference external" href="http://openbabel.sourceforge.net/api/current/classOpenBabel_1_1OBMolTorsionIter.shtml">OBMolTorsionIter</a>,
+<a class="reference external" href="http://openbabel.sourceforge.net/api/current/classOpenBabel_1_1OBMolRingIter.shtml">OBMolRingIter</a>
+- given an OBMol, iterate over all OBAtoms, OBBonds, OBAngles,
+OBTorsions or OBRings.</li>
+<li><a class="reference external" href="http://openbabel.sourceforge.net/api/current/classOpenBabel_1_1OBMolAtomBFSIter.shtml">OBMolAtomBFSIter</a>
+- given an OBMol and the index of an atom, OBMolAtomBFSIter
+iterates over all the neighbouring atoms in a breadth-first manner.
+It differs from the other iterators in that it returns two values -
+an OBAtom, and the &#8216;depth&#8217; of the OBAtom in the breadth-first
+search (this is useful, for example, when creating circular
+fingerprints)</li>
+<li><a class="reference external" href="http://openbabel.sourceforge.net/api/current/classOpenBabel_1_1OBMolPairIter.shtml">OBMolPairIter</a>
+- given an OBMol, iterate over all pairs of OBAtoms separated by
+more than three bonds</li>
+<li><a class="reference external" href="http://openbabel.sourceforge.net/api/current/classOpenBabel_1_1OBResidueIter.shtml">OBResidueIter</a>
+- given an OBMol representing a protein, iterate over all
+OBResidues</li>
+<li><a class="reference external" href="http://openbabel.sourceforge.net/api/current/classOpenBabel_1_1OBResidueAtomIter.shtml">OBResidueAtomIter</a>
+- given an OBResidue, iterate over all OBAtoms</li>
+</ul>
+<p>These iterator classes can be used using the typical Python syntax
+for iterators:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">obatom</span> <span class="ow">in</span> <span class="n">openbabel</span><span class="o">.</span><span class="n">OBMolAtomIter</span><span class="p">(</span><span class="n">obmol</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">obatom</span><span class="o">.</span><span class="n">GetAtomicMass</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Note that OBMolTorsionIter returns atom IDs which are off by one.
+That is, you need to add one to each ID to get the correct ID.
+Also, if you add or remove atoms, you will need to delete the
+existing TorsionData before using OBMolTorsionIter. This is done as
+follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">mol</span><span class="o">.</span><span class="n">DeleteData</span><span class="p">(</span><span class="n">openbabel</span><span class="o">.</span><span class="n">TorsionData</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="calling-a-method-requiring-an-array-of-c-doubles">
+<h2>Calling a method requiring an array of C doubles<a class="headerlink" href="#calling-a-method-requiring-an-array-of-c-doubles" title="Permalink to this headline">¶</a></h2>
+<p>Some Open Babel toolkit methods, for example <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBMol.shtml#ae330819c26c418de3a2c995fd191807b">OBMol::Rotate()()</a>,
+require an array of doubles. It&#8217;s not possible to directly use a
+list of floats when calling such a function from Python. Instead,
+you need to first explicitly create a C array using the
+<em>double_array()</em> function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">obMol</span><span class="o">.</span><span class="n">Rotate</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">54.7</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="c"># Error!</span>
+<span class="n">myarray</span> <span class="o">=</span> <span class="n">openbabel</span><span class="o">.</span><span class="n">double_array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">54.7</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">obMol</span><span class="o">.</span><span class="n">Rotate</span><span class="p">(</span><span class="n">myarray</span><span class="p">)</span>
+<span class="c"># Works!</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="accessing-obpairdata-and-obunitcell">
+<h2>Accessing OBPairData and OBUnitCell<a class="headerlink" href="#accessing-obpairdata-and-obunitcell" title="Permalink to this headline">¶</a></h2>
+<p>If you want to access any <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBPairData.shtml">OBPairData</a>
+or <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBUnitCell.shtml">OBUnitCell</a>
+associated with a molecule, you need to &#8216;cast&#8217; the OBGenericData
+returned by OBMol.GetData using the <em>toPairData()</em> or
+<em>toUnitCell()</em> functions:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">pairdata</span> <span class="o">=</span> <span class="p">[</span><span class="n">openbabel</span><span class="o">.</span><span class="n">toPairData</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">obMol</span><span class="o">.</span><span class="n">GetData</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">GetDataType</span><span class="p">()</span><span class="o">==</span><span class="n">openbabel</span><span class="o">.</span><span class="n">PairData</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">pairdata</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">GetAttribute</span><span class="p">(),</span> <span class="n">pairdata</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">GetValue</span><span class="p">()</span>
+
+<span class="n">unitcell</span> <span class="o">=</span> <span class="n">openbabel</span><span class="o">.</span><span class="n">toUnitCell</span><span class="p">(</span><span class="n">obMol</span><span class="o">.</span><span class="n">GetData</span><span class="p">(</span><span class="n">openbabel</span><span class="o">.</span><span class="n">UnitCell</span><span class="p">))</span>
+<span class="k">print</span> <span class="n">unitcell</span><span class="o">.</span><span class="n">GetAlpha</span><span class="p">(),</span> <span class="n">unitcell</span><span class="o">.</span><span class="n">GetSpaceGroup</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="combining-numpy-with-open-babel">
+<h2>Combining numpy with Open Babel<a class="headerlink" href="#combining-numpy-with-open-babel" title="Permalink to this headline">¶</a></h2>
+<p>If you are using the Python numerical extension, numpy, and you try
+to pass values from a numpy array to Open Babel, it may not work
+unless you convert the values to Python built-in types first:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span><span class="o">,</span> <span class="nn">openbabel</span>
+<span class="n">mol</span> <span class="o">=</span> <span class="n">openbabel</span><span class="o">.</span><span class="n">OBMol</span><span class="p">()</span>
+<span class="n">atom</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">NewAtom</span><span class="p">()</span>
+
+<span class="n">coord</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">4.6</span><span class="p">],</span> <span class="s">&quot;float32&quot;</span><span class="p">)</span>
+<span class="n">atom</span><span class="o">.</span><span class="n">SetVector</span><span class="p">(</span><span class="n">coord</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">coord</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">coord</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="c"># Error</span>
+
+<span class="n">atom</span><span class="o">.</span><span class="n">SetVector</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">coord</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">coord</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">coord</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+<span class="c"># No error</span>
+
+<span class="n">coord</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">4.6</span><span class="p">],</span> <span class="s">&quot;float64&quot;</span><span class="p">)</span>
+<span class="n">atom</span><span class="o">.</span><span class="n">SetVector</span><span class="p">(</span><span class="n">coord</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">coord</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">coord</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="c"># No error either - not all numpy arrays will cause an error</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Python_Pybel.html" title="Pybel"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="PythonInstall.html" title="Install Python bindings"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="intro.html" >Write software using the Open Babel library</a> &raquo;</li>
+          <li><a href="Python.html" >Python</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Open Babel community.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

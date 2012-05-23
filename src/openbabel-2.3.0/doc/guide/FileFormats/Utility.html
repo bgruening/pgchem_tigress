@@ -1,0 +1,155 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Utility &mdash; Open Babel v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open Babel v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Supported File Formats and Options" href="Overview.html" />
+    <link rel="next" title="Compare molecules using InChI (k)" href="Compare_molecules_using_InChI.html" />
+    <link rel="prev" title="Sybyl Mol2 format (ml2, sy2, mol2)" href="Sybyl_Mol2_format.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Compare_molecules_using_InChI.html" title="Compare molecules using InChI (k)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Sybyl_Mol2_format.html" title="Sybyl Mol2 format (ml2, sy2, mol2)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="Overview.html" accesskey="U">Supported File Formats and Options</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Sybyl_Mol2_format.html"
+                        title="previous chapter">Sybyl Mol2 format (ml2, sy2, mol2)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Compare_molecules_using_InChI.html"
+                        title="next chapter">Compare molecules using InChI (k)</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/FileFormats/Utility.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="utility">
+<h1>Utility<a class="headerlink" href="#utility" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Compare_molecules_using_InChI.html">Compare molecules using InChI (k)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Copy_raw_text.html">Copy raw text (copy)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fastsearch_format.html">Fastsearch format (fs)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Fastsearch_format.html#read-options">Read Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fastsearch_format.html#write-options">Write Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Fingerprint_format.html">Fingerprint format (fpt)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Fingerprint_format.html#write-options">Write Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="General_XML_format.html">General XML format (xml)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="General_XML_format.html#read-options">Read Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Generic_Output_file_format.html">Generic Output file format (dat, output, out, log)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Generic_Output_file_format.html#read-options">Read Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MolPrint2D_format.html">MolPrint2D format (mpd)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MolPrint2D_format.html#write-options">Write Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Multilevel_Neighborhoods_of_Atoms_(MNA).html">Multilevel Neighborhoods of Atoms (MNA) (mna)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Multilevel_Neighborhoods_of_Atoms_(MNA).html#write-options">Write Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Open_Babel_molecule_report.html">Open Babel molecule report (molreport)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Open_Babel_report_format.html">Open Babel report format (report)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Outputs_nothing.html">Outputs nothing (nul)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reads_raw_text.html">Reads raw text (text)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Title_format.html">Title format (txt)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XYZ_cartesian_coordinates_format.html">XYZ cartesian coordinates format (xyz)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="XYZ_cartesian_coordinates_format.html#read-options">Read Options</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Compare_molecules_using_InChI.html" title="Compare molecules using InChI (k)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Sybyl_Mol2_format.html" title="Sybyl Mol2 format (ml2, sy2, mol2)"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="Overview.html" >Supported File Formats and Options</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Open Babel community.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

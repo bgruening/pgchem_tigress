@@ -1,0 +1,154 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Modular design of code base &mdash; Open Babel v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open Babel v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Miscellaneous topics" href="Misc.html" />
+    <link rel="next" title="Contributing to Open Babel" href="../Contributing/Contributing.html" />
+    <link rel="prev" title="Errors and Warnings" href="Errors.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../Contributing/Contributing.html" title="Contributing to Open Babel"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Errors.html" title="Errors and Warnings"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="Misc.html" accesskey="U">Miscellaneous topics</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Modular design of code base</a><ul>
+<li><a class="reference internal" href="#structure-of-openbabel">Structure of OpenBabel</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Errors.html"
+                        title="previous chapter">Errors and Warnings</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../Contributing/Contributing.html"
+                        title="next chapter">Contributing to Open Babel</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/Features/Design.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="modular-design-of-code-base">
+<h1>Modular design of code base<a class="headerlink" href="#modular-design-of-code-base" title="Permalink to this headline">¶</a></h1>
+<p>Since version 2.0, Open Babel has had a modular structure. Particularly for the use of Open Babel as a chemical file format converter, it aims to:</p>
+<ul class="simple">
+<li>separate the chemistry, the conversion process and the user interfaces, reducing, as far as possible, the dependency of one on another.</li>
+<li>put all the code for each chemical format in one place (usually a single cpp file) and make the addition of new formats simple.</li>
+<li>allow the format conversion of not just molecules, but also any other chemical objects, such as reactions.</li>
+</ul>
+<div class="section" id="structure-of-openbabel">
+<h2>Structure of OpenBabel<a class="headerlink" href="#structure-of-openbabel" title="Permalink to this headline">¶</a></h2>
+<div class="figure">
+<img alt="../_images/OBStructure.png" src="../_images/OBStructure.png" />
+<p class="caption">The structure of the Open Babel codebase broken down into modules</p>
+</div>
+<p>The separate parts of the OpenBabel program are:</p>
+<blockquote>
+<ul class="simple">
+<li>The <strong>Chemical</strong> core, which contains OBMol etc. and has all the chemical structure description and manipulation. This bit is the heart of the application and its API can be used as a chemical toolbox. It has no input/output capabilities.</li>
+<li>The <strong>Formats</strong>, which read and write to files of different types. These classes are derived from a common base class, OBFormat, which is in the Conversion Control module. They also make use of the chemical routines in the Chemical Core module. Each format file contains a global object of the format class. When the format is loaded the class constructor registers the presence of the class with OBConversion. This means the formats are plugins - new formats can be added without changing any framework code.</li>
+<li><strong>Common Formats</strong> include OBMoleculeFormats and XMLBaseFormat from which most other formats (like Format A and Format B in the diagram) are derived. Independent formats like Format C are also possible.</li>
+<li>The <strong>Conversion</strong> control, which also keeps track of the available formats, the conversion options and the input and output streams. It can be compiled without reference to any other parts of the program. In particular, it knows nothing of the Chemical core: mol.h is not included.</li>
+<li>The <strong>User interface</strong>, which may be a command line (in main.cpp), a Graphical User Interface(GUI), especially suited to Windows users and novices, or may be part of another program which uses OpenBabel&#8217;s input and output facilities. This depends only on the Conversion control module (obconversion.h is included), but not on the Chemical core or on any of the Formats.</li>
+<li>The <strong>Fingerprint API</strong>, as well as being usable in external programs, is employed by the fastsearch and fingerprint formats.</li>
+<li>The <strong>Fingerprints</strong>, which are bit arrays which describe an object and which facilitate fast searching. They are also built as plugins, registering themselves with their base class OBFingerprint which is in the Fingerprint API.</li>
+<li>The <strong>Error handling</strong> can be used throughout the program to log and display errors and warnings.</li>
+</ul>
+</blockquote>
+<p>It is possible to build each box in the diagram as a separate DLL or shared library and the restricted dependencies can help to limit the amount of recompilation. For the formats or the fingerprints built in this way it may be possible to use only those whose DLL or so files are present when the program starts. Several formats or fingerprints may be present in a single dynamic library.</p>
+<p>Alternatively, and most commonly, the same source code can be built into a single executable. The restricted dependencies still provide easier progam maintainance.</p>
+<p>This segregation means that a module can directly call code only in other modules connected to it by forward arrows. So some discipline is needed when adding new code, and sometimes non-obvious work-arounds are necessary. For instance, since the user interface doesn&#8217;t know about the Chemical Core, if it were necessary to set any parameters in it, then this would have to be done through a pseudo format OBAPIInterface.</p>
+<p>Sometimes one format needs to use code from another format, for example, rxnformat needs to read mol files with code from mdlformat. The calling format should not use the code directly but should do it through a OBConversion object configured with the appropriate helper format.</p>
+<p>The objects passed between the modules in the diagram above are polymorphic <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBBase.shtml">OBBase</a> pointers. This means that the conversion framework can be used by any object derived from OBBase (which essentially means anything - chemical or not). Most commonly these refer to OBMol objects, less commonly to OBReaction objects, but could be extended to anything else without needing to change any existing code.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../Contributing/Contributing.html" title="Contributing to Open Babel"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Errors.html" title="Errors and Warnings"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="Misc.html" >Miscellaneous topics</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Open Babel community.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>

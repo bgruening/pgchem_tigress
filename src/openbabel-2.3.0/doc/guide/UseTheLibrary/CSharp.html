@@ -1,0 +1,228 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>CSharp and OBDotNet &mdash; Open Babel v2.3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open Babel v2.3.0 documentation" href="../index.html" />
+    <link rel="up" title="Write software using the Open Babel library" href="intro.html" />
+    <link rel="next" title="Ruby" href="Ruby.html" />
+    <link rel="prev" title="Perl" href="Perl.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Ruby.html" title="Ruby"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Perl.html" title="Perl"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="intro.html" accesskey="U">Write software using the Open Babel library</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/babel130.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">CSharp and OBDotNet</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#c-and-visual-basic">C# and Visual Basic</a></li>
+<li><a class="reference internal" href="#running-under-mono">Running under Mono</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#obdotnet-api">OBDotNet API</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Perl.html"
+                        title="previous chapter">Perl</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Ruby.html"
+                        title="next chapter">Ruby</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/UseTheLibrary/CSharp.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="csharp-and-obdotnet">
+<h1>CSharp and OBDotNet<a class="headerlink" href="#csharp-and-obdotnet" title="Permalink to this headline">¶</a></h1>
+<p><strong>OBDotNet</strong> is a compiled assembly that allows OpenBabel to be used from the various .NET  languages (e.g. Visual Basic, C#, IronPython, IronRuby, and J#) on Windows, Linux and MacOSX. The current version is OBDotNet 0.3.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="c-and-visual-basic">
+<h3>C# and Visual Basic<a class="headerlink" href="#c-and-visual-basic" title="Permalink to this headline">¶</a></h3>
+<p>The following instructions describe how to use OBDotNet in a C# project using Microsoft Visual C# 2008 Express Edition. You should be able to apply these instructions to more recent compilers, and also to Visual Basic projects.</p>
+<blockquote>
+<ol class="arabic simple">
+<li>First you need to download and install the <strong class="program">OpenBabelGUI version 2.2.3</strong></li>
+<li>Download and extract <a class="reference external" href="http://sf.net/projects/openbabel/files/OBDotNet/0.3/OBDotNet-0.3.zip/download">OBDotNet-0.3.zip</a></li>
+<li>Start <strong class="program">Microsoft Visual C# Express Edition</strong> and create a new new project, for example a console application</li>
+<li>Replace the code in <tt class="file docutils literal"><span class="pre">Program.cs</span></tt> by this <a class="reference external" href="http://openbabel.svn.sf.net/viewvc/openbabel/openbabel/tags/openbabel-2-2-1/scripts/csharp/example.cs?revision=2910">example program</a> and save the project somewhere</li>
+<li>Copy and paste the entire contents of the extracted <tt class="file docutils literal"><span class="pre">OBDotNet-0.3.zip</span></tt> folder into the project directory in <tt class="file docutils literal"><span class="pre">bin/Debug</span></tt></li>
+<li>Right click on References in the right hand pane and choose the Browse Tab to add a reference to <tt class="file docutils literal"><span class="pre">OBDotNet.dll</span></tt> in the <tt class="file docutils literal"><span class="pre">bin/Debug</span></tt> directory.</li>
+<li>If you build the project now, it should work.</li>
+<li>Uncomment the final line, and run it under <em class="guilabel">Debug</em>/<em class="guilabel">Start Debugging</em>. You should see the output of 44.0952, the molecular weight of propane.</li>
+<li>To run the program at the command line, you just type the full path to the exe located in the <tt class="file docutils literal"><span class="pre">Debug</span></tt> folder.</li>
+</ol>
+</blockquote>
+</div>
+<div class="section" id="running-under-mono">
+<h3>Running under Mono<a class="headerlink" href="#running-under-mono" title="Permalink to this headline">¶</a></h3>
+<p>For Linux or MacOSX follow the instructions in the <tt class="file docutils literal"><span class="pre">README</span></tt> file in <tt class="file docutils literal"><span class="pre">scripts/csharp</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="obdotnet-api">
+<h2>OBDotNet API<a class="headerlink" href="#obdotnet-api" title="Permalink to this headline">¶</a></h2>
+<p>The API is almost identical to the Open Babel <a class="reference external" href="http://openbabel.org/api">C++ API</a>. Differences are described here.</p>
+<p class="rubric">Using iterators</p>
+<p>In OBDotNet, iterators are provided as methods of the relevant class. The full list is as follows:</p>
+<ul class="simple">
+<li><strong>OBMol</strong> has <tt class="docutils literal"><span class="pre">.Atoms()</span></tt>, <tt class="docutils literal"><span class="pre">.Bonds()</span></tt>, <tt class="docutils literal"><span class="pre">.Residues()</span></tt>, and <tt class="docutils literal"><span class="pre">.Fragments()</span></tt>. These correspond to <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBMolAtomIter.shtml">OBMolAtomIter</a>, <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBMolBondIter.shtml">OBMolBondIter</a>, <span>OBMolResidueIter</span> and <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBMolAtomDFSIter.shtml">OBMolAtomDFSIter</a> respectively.</li>
+<li><strong>OBAtom</strong> has <span>.Bonds()</span> and <span>.Neighbours()</span>. These correspond to <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBAtomBondIter.shtml">OBAtomBondIter</a> and <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBAtomAtomIter.shtml">OBAtomAtomIter</a> respectively.</li>
+</ul>
+<p>Such iterators are used as follows:</p>
+<div class="highlight-c#"><div class="highlight"><pre><span class="k">foreach</span> <span class="p">(</span><span class="n">OBAtom</span> <span class="n">atom</span> <span class="k">in</span> <span class="n">myobmol</span><span class="p">.</span><span class="n">Atoms</span><span class="p">())</span>
+    <span class="n">System</span><span class="p">.</span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">atom</span><span class="p">.</span><span class="n">GetAtomType</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>Other iterators in the C++ API not listed above can still be used through their IEnumerator methods.</p>
+<p class="rubric">Handling OBGenericData</p>
+<p>To cast <a class="reference external" href="http://openbabel.org/dev-api/classOpenBabel_1_1OBGenericData.shtml">OBGenericData</a> to a specific subclass, you should use the <tt class="docutils literal"><span class="pre">.Downcast</span> <span class="pre">&lt;T&gt;</span></tt> method, where <tt class="docutils literal"><span class="pre">T</span></tt> is a subclass of <strong>OBGenericData</strong>.</p>
+<p class="rubric">Open Babel Constants</p>
+<p>OpenBabel constants are available in the class <tt class="docutils literal"><span class="pre">openbabelcsharp</span></tt>.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>The following sections show how the same example application would be programmed in C#, Visual Basic and IronPython. The programs print out the molecular weight of propane (represented by the SMILES string &#8220;CCC&#8221;).</p>
+<p class="rubric">C#</p>
+<div class="highlight-c#"><div class="highlight"><pre><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">OpenBabel</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MyConsoleApplication</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">OBConversion</span> <span class="n">obconv</span> <span class="p">=</span> <span class="k">new</span> <span class="n">OBConversion</span><span class="p">();</span>
+            <span class="n">obconv</span><span class="p">.</span><span class="n">SetInFormat</span><span class="p">(</span><span class="s">&quot;smi&quot;</span><span class="p">);</span>
+            <span class="n">OBMol</span> <span class="n">mol</span> <span class="p">=</span> <span class="k">new</span> <span class="n">OBMol</span><span class="p">();</span>
+            <span class="n">obconv</span><span class="p">.</span><span class="n">ReadString</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="s">&quot;CCC&quot;</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">mol</span><span class="p">.</span><span class="n">GetMolWt</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p class="rubric">Visual Basic</p>
+<div class="highlight-vb.net"><div class="highlight"><pre><span class="k">Imports</span> <span class="n">OpenBabel</span>
+
+<span class="k">Module</span> <span class="n">Module1</span>
+
+    <span class="k">Sub</span> <span class="n">Main</span><span class="p">()</span>
+        <span class="k">Dim</span> <span class="n">OBConv</span> <span class="ow">As</span> <span class="k">New</span> <span class="n">OBConversion</span><span class="p">()</span>
+        <span class="k">Dim</span> <span class="n">Mol</span> <span class="ow">As</span> <span class="k">New</span> <span class="n">OBMol</span><span class="p">()</span>
+
+        <span class="n">OBConv</span><span class="p">.</span><span class="n">SetInFormat</span><span class="p">(</span><span class="s">&quot;smi&quot;</span><span class="p">)</span>
+        <span class="n">OBConv</span><span class="p">.</span><span class="n">ReadString</span><span class="p">(</span><span class="n">Mol</span><span class="p">,</span> <span class="s">&quot;CCC&quot;</span><span class="p">)</span>
+        <span class="n">System</span><span class="p">.</span><span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&quot;The molecular weight of propane is &quot;</span> <span class="o">&amp;</span> <span class="n">Mol</span><span class="p">.</span><span class="n">GetMolWt</span><span class="p">())</span>
+    <span class="k">End</span> <span class="k">Sub</span>
+
+<span class="k">End</span> <span class="k">Module</span>
+</pre></div>
+</div>
+<p class="rubric">IronPython</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">clr</span>
+<span class="n">clr</span><span class="o">.</span><span class="n">AddReference</span><span class="p">(</span><span class="s">&quot;OBDotNet.dll&quot;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">OpenBabel</span> <span class="kn">as</span> <span class="nn">ob</span>
+
+<span class="n">conv</span> <span class="o">=</span> <span class="n">ob</span><span class="o">.</span><span class="n">OBConversion</span><span class="p">()</span>
+<span class="n">conv</span><span class="o">.</span><span class="n">SetInFormat</span><span class="p">(</span><span class="s">&quot;smi&quot;</span><span class="p">)</span>
+<span class="n">mol</span> <span class="o">=</span> <span class="n">ob</span><span class="o">.</span><span class="n">OBMol</span><span class="p">()</span>
+<span class="n">conv</span><span class="o">.</span><span class="n">ReadString</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="s">&quot;CCC&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">GetMolWt</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Ruby.html" title="Ruby"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Perl.html" title="Perl"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open Babel v2.3.0 documentation</a> &raquo;</li>
+          <li><a href="intro.html" >Write software using the Open Babel library</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Open Babel community.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+  </body>
+</html>
