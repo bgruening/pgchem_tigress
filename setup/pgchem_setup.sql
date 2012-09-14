@@ -22,7 +22,7 @@ DROP TYPE IF EXISTS molfp CASCADE;
 CREATE TYPE molecule;
 CREATE TYPE molfp;
 
-CREATE FUNCTION molfp_in(cstring)
+CREATE OR REPLACE FUNCTION molfp_in(cstring)
     RETURNS molfp
     AS 'libpgchem'
     LANGUAGE C IMMUTABLE STRICT;
@@ -42,7 +42,7 @@ CREATE TYPE molfp (
    storage = PLAIN
    );
 
-CREATE FUNCTION molecule_in(cstring)
+CREATE OR REPLACE FUNCTION molecule_in(cstring)
     RETURNS molecule
     AS 'libpgchem'
     LANGUAGE C IMMUTABLE STRICT;
@@ -52,12 +52,12 @@ CREATE OR REPLACE FUNCTION molecule_out(molecule)
    AS 'libpgchem'
     LANGUAGE C IMMUTABLE STRICT;
 
-CREATE FUNCTION molecule_recv(internal)
+CREATE OR REPLACE FUNCTION molecule_recv(internal)
    RETURNS molecule
   AS 'libpgchem'
    LANGUAGE C IMMUTABLE STRICT;
 
-CREATE FUNCTION molecule_send(molecule)
+CREATE OR REPLACE FUNCTION molecule_send(molecule)
    RETURNS bytea
   AS 'libpgchem'
    LANGUAGE C IMMUTABLE STRICT;
@@ -72,67 +72,67 @@ CREATE TYPE molecule (
    storage = MAIN
    );
 
-CREATE FUNCTION molfp_compress(internal)
+CREATE OR REPLACE FUNCTION molfp_compress(internal)
 RETURNS internal
 AS 'libpgchem'
 LANGUAGE 'C';
 
-CREATE FUNCTION molfp_decompress(internal)
+CREATE OR REPLACE FUNCTION molfp_decompress(internal)
 RETURNS internal
 AS 'libpgchem'
 LANGUAGE 'C';
 
-CREATE FUNCTION molfp_penalty(internal,internal,internal)
+CREATE OR REPLACE FUNCTION molfp_penalty(internal,internal,internal)
 RETURNS internal
 AS 'libpgchem'
 LANGUAGE 'C' WITH (isstrict);
 
-CREATE FUNCTION molfp_picksplit(internal,internal)
+CREATE OR REPLACE FUNCTION molfp_picksplit(internal,internal)
 RETURNS internal
 AS 'libpgchem'
 LANGUAGE 'C' WITH (isstrict);
 
-CREATE FUNCTION molfp_union(internal, internal)
+CREATE OR REPLACE FUNCTION molfp_union(internal, internal)
 RETURNS internal
 AS 'libpgchem'
 LANGUAGE 'C';
 
-CREATE FUNCTION molfp_same(internal, internal, internal)
+CREATE OR REPLACE FUNCTION molfp_same(internal, internal, internal)
 RETURNS internal
 AS 'libpgchem'
 LANGUAGE 'C';
 
-CREATE FUNCTION molfp_consistent(internal,internal,int4)
+CREATE OR REPLACE FUNCTION molfp_consistent(internal,internal,int4)
 RETURNS bool
 AS 'libpgchem'
 LANGUAGE 'C';
 
-CREATE FUNCTION molecule_contained_in(molecule,molecule)
+CREATE OR REPLACE FUNCTION molecule_contained_in(molecule,molecule)
 RETURNS bool
 AS 'libpgchem'
 LANGUAGE 'C' with (isstrict);
 
-CREATE FUNCTION molecule_contains(molecule,molecule)
+CREATE OR REPLACE FUNCTION molecule_contains(molecule,molecule)
 RETURNS bool
 AS 'libpgchem'
 LANGUAGE 'C' with (isstrict);
 
-CREATE FUNCTION molecule_maybe_contained_in(molecule,molecule)
+CREATE OR REPLACE FUNCTION molecule_maybe_contained_in(molecule,molecule)
 RETURNS bool
 AS 'libpgchem'
 LANGUAGE 'C' with (isstrict);
 
-/*CREATE FUNCTION molecule_maybe_contains(molecule,molecule)
+/*CREATE OR REPLACE FUNCTION molecule_maybe_contains(molecule,molecule)
 RETURNS bool
 AS 'libpgchem'
 LANGUAGE 'C' with (isstrict);*/
 
-CREATE FUNCTION molecule_equals(molecule,molecule)
+CREATE OR REPLACE FUNCTION molecule_equals(molecule,molecule)
 RETURNS bool
 AS 'libpgchem'
 LANGUAGE 'C' with (isstrict);
 
-CREATE FUNCTION molecule_similarity(molecule,molecule)
+CREATE OR REPLACE FUNCTION molecule_similarity(molecule,molecule)
 RETURNS double precision
 AS 'libpgchem'
 LANGUAGE 'C' with (isstrict);
