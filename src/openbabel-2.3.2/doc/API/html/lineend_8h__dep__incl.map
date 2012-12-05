@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$obconversion_8h.shtml" title="Handle file conversions. Declaration of OBFormat, OBConversion." alt="" coords="303,83,425,112"/>
+<area shape="rect" id="node5" href="$obmolecformat_8h.shtml" title="Subclass of OBFormat for conversion of OBMol." alt="" coords="5,160,141,189"/>
+<area shape="rect" id="node7" href="$xml_8h.shtml" title="Declaration of XMLConversion, declaration and definition of XMLBaseFormat and XMLMoleculeFormat." alt="" coords="96,237,155,267"/>
+<area shape="rect" id="node10" href="$alias_8cpp.shtml" title="OBGenericData class to for atom alias data (e.g., in 2D drawing programs for &quot;COOH&quot;)" alt="" coords="216,160,293,189"/>
+<area shape="rect" id="node12" href="$builder_8cpp.shtml" title="Handle OBBuilder class." alt="" coords="317,160,411,189"/>
+<area shape="rect" id="node14" href="$mcdlutil_8cpp.shtml" title="2D molecule coordinate generation." alt="" coords="435,160,536,189"/>
+<area shape="rect" id="node16" href="$obconversion_8cpp.shtml" title="Implementation of OBFormat and OBConversion classes." alt="" coords="560,160,699,189"/>
+<area shape="rect" id="node18" href="$query_8cpp.shtml" title="OBQuery, OBQueryAtom &amp; OBQueryBond classes." alt="" coords="723,160,808,189"/>
+</map>

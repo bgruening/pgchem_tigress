@@ -1,0 +1,21 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$builder_8h.shtml" title="Class to build 3D structures." alt="" coords="208,83,286,112"/>
+<area shape="rect" id="node7" href="$atom_8cpp.shtml" title="Handle OBAtom class." alt="" coords="23,160,108,189"/>
+<area shape="rect" id="node9" href="$builder_8cpp.shtml" title="Handle OBBuilder class." alt="" coords="200,237,294,267"/>
+<area shape="rect" id="node13" href="$graphsym_8h.shtml" title="Handle and perceive graph symmtery for canonical numbering." alt="" coords="895,160,994,189"/>
+<area shape="rect" id="node25" href="$tetranonplanar_8h.shtml" title="Base class for handling and storing non&#45;planar stereochemistry with 4 reference atom ids..." alt="" coords="636,83,770,112"/>
+<area shape="rect" id="node33" href="$parsmart_8cpp.shtml" title="Implementation of Daylight SMARTS parser." alt="" coords="795,237,904,267"/>
+<area shape="rect" id="node35" href="$tetraplanar_8h.shtml" title="Base class for handling and storing planar stereochemistry with 4 reference atoms." alt="" coords="452,83,562,112"/>
+<area shape="rect" id="node42" href="$mcdlutil_8cpp.shtml" title="2D molecule coordinate generation." alt="" coords="416,237,518,267"/>
+<area shape="rect" id="node52" href="$depict_8cpp.shtml" title="2D depiction of molecules using OBPainter." alt="" coords="895,83,988,112"/>
+<area shape="rect" id="node5" href="$alias_8cpp.shtml" title="OBGenericData class to for atom alias data (e.g., in 2D drawing programs for &quot;COOH&quot;)" alt="" coords="132,160,210,189"/>
+<area shape="rect" id="node11" href="$mol_8cpp.shtml" title="Handle molecules. Implementation of OBMol." alt="" coords="318,237,392,267"/>
+<area shape="rect" id="node15" href="$canon_8cpp.shtml" title="Canonical numbering of SMILES, molecules and fragments." alt="" coords="680,237,771,267"/>
+<area shape="rect" id="node17" href="$graphsym_8cpp.shtml" title="Handle and perceive graph symmtery for canonical numbering." alt="" coords="542,237,656,267"/>
+<area shape="rect" id="node19" href="$isomorphism_8cpp.shtml" title="OBIsomorphismMapper class for finding isomorphisms." alt="" coords="928,237,1062,267"/>
+<area shape="rect" id="node21" href="$kekulize_8cpp.shtml" title="Alternate algorithm to kekulize a molecule (OBMol::NewPerceiveKekuleBonds())." alt="" coords="1086,237,1190,267"/>
+<area shape="rect" id="node23" href="$align_8cpp.shtml" title="Handle 3D coordinates." alt="" coords="1214,237,1294,267"/>
+<area shape="rect" id="node27" href="$tetrahedral_8h.shtml" title="Handle general non&#45;planar tetrahedral stereochemistry." alt="" coords="643,160,752,189"/>
+<area shape="rect" id="node37" href="$cistrans_8h.shtml" title="Store and convert cis/trans double&#45;bond stereochemistry." alt="" coords="476,160,562,189"/>
+<area shape="rect" id="node45" href="$squareplanar_8h.shtml" title="Store and convert square&#45;planar stereochemistry." alt="" coords="335,160,452,189"/>
+</map>

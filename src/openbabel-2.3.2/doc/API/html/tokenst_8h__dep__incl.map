@@ -1,0 +1,21 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$base_8h.shtml" title="Base classes to build a graph." alt="" coords="493,83,560,112"/>
+<area shape="rect" id="node18" href="$query_8h.shtml" title="OBQuery, OBQueryAtom &amp; OBQueryBond classes." alt="" coords="797,469,867,499"/>
+<area shape="rect" id="node54" href="$tokenst_8cpp.shtml" title="Tokenize a string." alt="" coords="1217,83,1319,112"/>
+<area shape="rect" id="node5" href="$atom_8h.shtml" title="Handle atoms." alt="" coords="369,237,439,267"/>
+<area shape="rect" id="node7" href="$bond_8h.shtml" title="Handle bonds." alt="" coords="437,315,504,344"/>
+<area shape="rect" id="node9" href="$mol_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header for Open Babel)..." alt="" coords="371,392,429,421"/>
+<area shape="rect" id="node11" href="$builder_8h.shtml" title="Class to build 3D structures." alt="" coords="180,469,257,499"/>
+<area shape="rect" id="node13" href="$forcefield_8h.shtml" title="Handle forcefields." alt="" coords="167,547,263,576"/>
+<area shape="rect" id="node15" href="$grid_8h.shtml" title="Handle grids of values." alt="" coords="371,469,429,499"/>
+<area shape="rect" id="node21" href="$atomclass_8h.shtml" title="Handle atom classes in reaction SMILES/SMIRKS." alt="" coords="721,160,823,189"/>
+<area shape="rect" id="node26" href="$generic_8h.shtml" title="Handle generic data classes. Custom data for atoms, bonds, etc." alt="" coords="564,160,647,189"/>
+<area shape="rect" id="node29" href="$descriptor_8cpp.shtml" title="Base class for molecular descriptors." alt="" coords="513,237,631,267"/>
+<area shape="rect" id="node32" href="$griddata_8h.shtml" title="OBGenericData class to connect numeric grids (e.g., orbitals, electrostatic potential) to molecules..." alt="" coords="43,392,131,421"/>
+<area shape="rect" id="node36" href="$obiter_8h.shtml" title="STL&#45;style iterators for Open Babel." alt="" coords="705,237,777,267"/>
+<area shape="rect" id="node39" href="$op_8h.shtml" title="Base plugin class for operations on molecules." alt="" coords="847,160,897,189"/>
+<area shape="rect" id="node41" href="$residue_8h.shtml" title="Defines for residue properties, names, etc." alt="" coords="305,160,388,189"/>
+<area shape="rect" id="node45" href="$text_8h.shtml" title="Handle generic non&#45;chemical text processing." alt="" coords="921,160,985,189"/>
+<area shape="rect" id="node47" href="$stereo_8h.shtml" title="Process molecular stereochemistry information." alt="" coords="179,315,256,344"/>
+<area shape="rect" id="node50" href="$base_8cpp.shtml" title="Implementation of base classes." alt="" coords="1009,160,1092,189"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$conformersearch_8h.shtml" title="Conformer searching using genetic algorithm." alt="" coords="13,83,160,112"/>
+<area shape="rect" id="node7" href="$builder_8cpp.shtml" title="Handle OBBuilder class." alt="" coords="184,83,277,112"/>
+<area shape="rect" id="node9" href="$forcefield_8cpp.shtml" title="Handle OBForceField class." alt="" coords="301,83,413,112"/>
+<area shape="rect" id="node11" href="$mol_8cpp.shtml" title="Handle molecules. Implementation of OBMol." alt="" coords="437,83,512,112"/>
+<area shape="rect" id="node13" href="$rotamer_8cpp.shtml" title="Handle rotamer list data." alt="" coords="536,83,640,112"/>
+<area shape="rect" id="node5" href="$conformersearch_8cpp.shtml" title="Conformer searching using genetic algorithm." alt="" coords="5,160,168,189"/>
+</map>

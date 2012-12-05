@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$forcefield_8h.shtml" title="Handle forcefields." alt="" coords="119,83,215,112"/>
+<area shape="rect" id="node9" href="$grid_8cpp.shtml" title="Handle grids of values." alt="" coords="239,83,313,112"/>
+<area shape="rect" id="node11" href="$griddata_8cpp.shtml" title="OBGenericData class to connect numeric grids (e.g., orbitals, electrostatic potential) to molecules..." alt="" coords="337,83,441,112"/>
+<area shape="rect" id="node5" href="$conformersearch_8cpp.shtml" title="Conformer searching using genetic algorithm." alt="" coords="5,160,168,189"/>
+<area shape="rect" id="node7" href="$forcefield_8cpp.shtml" title="Handle OBForceField class." alt="" coords="192,160,304,189"/>
+</map>

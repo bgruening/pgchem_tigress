@@ -1,0 +1,20 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$obutil_8h.shtml" title="Various utility methods." alt="" coords="287,83,356,112"/>
+<area shape="rect" id="node26" href="$vector3_8h.shtml" title="Handle 3D coordinates." alt="" coords="909,83,995,112"/>
+<area shape="rect" id="node47" href="$rand_8cpp.shtml" title="Pseudo random number generator." alt="" coords="1019,83,1096,112"/>
+<area shape="rect" id="node5" href="$generic_8h.shtml" title="Handle generic data classes. Custom data for atoms, bonds, etc." alt="" coords="659,160,741,189"/>
+<area shape="rect" id="node15" href="$obutil_8cpp.shtml" title="Various utility methods." alt="" coords="541,315,627,344"/>
+<area shape="rect" id="node18" href="$matrix3x3_8cpp.shtml" title="Handle 3D rotation matrix." alt="" coords="319,237,436,267"/>
+<area shape="rect" id="node20" href="$spacegroup_8cpp.shtml" title="Handle Crystallographic Space Groups." alt="" coords="259,160,384,189"/>
+<area shape="rect" id="node22" href="$vector3_8cpp.shtml" title="Handle 3D coordinates." alt="" coords="408,160,509,189"/>
+<area shape="rect" id="node24" href="$cairopainter_8cpp.shtml" title="cairopainter.cpp" alt="" coords="5,160,133,189"/>
+<area shape="rect" id="node7" href="$mol_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header for Open Babel)..." alt="" coords="887,237,945,267"/>
+<area shape="rect" id="node9" href="$grid_8h.shtml" title="Handle grids of values." alt="" coords="1001,315,1060,344"/>
+<area shape="rect" id="node11" href="$align_8h.shtml" title="Perform a least&#45;squares alignment of two molecules or two vectors of vector3 objects." alt="" coords="899,315,963,344"/>
+<area shape="rect" id="node13" href="$align_8cpp.shtml" title="Handle 3D coordinates." alt="" coords="988,392,1068,421"/>
+<area shape="rect" id="node28" href="$atom_8h.shtml" title="Handle atoms." alt="" coords="917,160,987,189"/>
+<area shape="rect" id="node31" href="$chargemodel_8h.shtml" title="Base class for molecular partial charge models." alt="" coords="1112,160,1232,189"/>
+<area shape="rect" id="node34" href="$griddata_8h.shtml" title="OBGenericData class to connect numeric grids (e.g., orbitals, electrostatic potential) to molecules..." alt="" coords="1307,160,1395,189"/>
+<area shape="rect" id="node38" href="$matrix3x3_8h.shtml" title="Handle 3D Rotation matrix." alt="" coords="533,160,635,189"/>
+<area shape="rect" id="node43" href="$depict_8h.shtml" title="2D depiction of molecules using OBPainter." alt="" coords="765,160,843,189"/>
+</map>

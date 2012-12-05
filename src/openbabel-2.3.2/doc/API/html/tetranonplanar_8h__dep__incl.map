@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$tetrahedral_8h.shtml" title="Handle general non&#45;planar tetrahedral stereochemistry." alt="" coords="240,83,349,112"/>
+<area shape="rect" id="node5" href="$builder_8cpp.shtml" title="Handle OBBuilder class." alt="" coords="5,160,99,189"/>
+<area shape="rect" id="node7" href="$canon_8cpp.shtml" title="Canonical numbering of SMILES, molecules and fragments." alt="" coords="123,160,213,189"/>
+<area shape="rect" id="node9" href="$graphsym_8cpp.shtml" title="Handle and perceive graph symmtery for canonical numbering." alt="" coords="237,160,352,189"/>
+<area shape="rect" id="node11" href="$mol_8cpp.shtml" title="Handle molecules. Implementation of OBMol." alt="" coords="376,160,451,189"/>
+<area shape="rect" id="node13" href="$parsmart_8cpp.shtml" title="Implementation of Daylight SMARTS parser." alt="" coords="475,160,584,189"/>
+</map>

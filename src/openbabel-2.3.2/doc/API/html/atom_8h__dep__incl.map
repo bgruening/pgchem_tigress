@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$bond_8h.shtml" title="Handle bonds." alt="" coords="315,83,381,112"/>
+<area shape="rect" id="node5" href="$mol_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header for Open Babel)..." alt="" coords="385,160,444,189"/>
+<area shape="rect" id="node7" href="$atom_8cpp.shtml" title="Handle OBAtom class." alt="" coords="123,237,208,267"/>
+<area shape="rect" id="node11" href="$builder_8cpp.shtml" title="Handle OBBuilder class." alt="" coords="5,237,99,267"/>
+<area shape="rect" id="node13" href="$chargemodel_8cpp.shtml" title="Base class for molecular partial charge models." alt="" coords="475,237,611,267"/>
+<area shape="rect" id="node15" href="$forcefield_8cpp.shtml" title="Handle OBForceField class." alt="" coords="232,237,344,267"/>
+<area shape="rect" id="node17" href="$grid_8cpp.shtml" title="Handle grids of values." alt="" coords="635,237,709,267"/>
+<area shape="rect" id="node19" href="$pointgroup_8cpp.shtml" title="Brute&#45;force point group detection." alt="" coords="733,237,853,267"/>
+<area shape="rect" id="node24" href="$residue_8cpp.shtml" title="Handle macromolecule residues." alt="" coords="468,160,567,189"/>
+<area shape="rect" id="node9" href="$bond_8cpp.shtml" title="Handle OBBond class." alt="" coords="368,237,451,267"/>
+</map>

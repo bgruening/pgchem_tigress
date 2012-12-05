@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$builder_8cpp.shtml" title="Handle OBBuilder class." alt="" coords="5,83,99,112"/>
+<area shape="rect" id="node5" href="$canon_8cpp.shtml" title="Canonical numbering of SMILES, molecules and fragments." alt="" coords="123,83,213,112"/>
+<area shape="rect" id="node7" href="$graphsym_8cpp.shtml" title="Handle and perceive graph symmtery for canonical numbering." alt="" coords="237,83,352,112"/>
+<area shape="rect" id="node9" href="$mcdlutil_8cpp.shtml" title="2D molecule coordinate generation." alt="" coords="376,83,477,112"/>
+<area shape="rect" id="node11" href="$mol_8cpp.shtml" title="Handle molecules. Implementation of OBMol." alt="" coords="501,83,576,112"/>
+</map>

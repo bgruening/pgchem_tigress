@@ -1,0 +1,16 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$align_8h.shtml" title="Perform a least&#45;squares alignment of two molecules or two vectors of vector3 objects." alt="" coords="200,83,264,112"/>
+<area shape="rect" id="node9" href="$transform3d_8h.shtml" title="Handle 3D transformations in space groups." alt="" coords="293,83,408,112"/>
+<area shape="rect" id="node15" href="$atom_8cpp.shtml" title="Handle OBAtom class." alt="" coords="432,83,517,112"/>
+<area shape="rect" id="node17" href="$builder_8cpp.shtml" title="Handle OBBuilder class." alt="" coords="541,83,635,112"/>
+<area shape="rect" id="node19" href="$chiral_8cpp.shtml" title="Detect chiral atoms and molecules." alt="" coords="659,83,744,112"/>
+<area shape="rect" id="node21" href="$forcefield_8cpp.shtml" title="Handle OBForceField class." alt="" coords="768,83,880,112"/>
+<area shape="rect" id="node23" href="$generic_8cpp.shtml" title="Handle OBGenericData classes. Custom data for atoms, bonds, etc." alt="" coords="904,83,1003,112"/>
+<area shape="rect" id="node25" href="$mol_8cpp.shtml" title="Handle molecules. Implementation of OBMol." alt="" coords="1027,83,1101,112"/>
+<area shape="rect" id="node27" href="$obutil_8cpp.shtml" title="Various utility methods." alt="" coords="1125,83,1211,112"/>
+<area shape="rect" id="node29" href="$matrix3x3_8cpp.shtml" title="Handle 3D rotation matrix." alt="" coords="1235,83,1352,112"/>
+<area shape="rect" id="node5" href="$conformersearch_8cpp.shtml" title="Conformer searching using genetic algorithm." alt="" coords="5,160,168,189"/>
+<area shape="rect" id="node7" href="$align_8cpp.shtml" title="Handle 3D coordinates." alt="" coords="192,160,272,189"/>
+<area shape="rect" id="node11" href="$spacegroup_8h.shtml" title="Handle Crystallographic Space Groups." alt="" coords="296,160,405,189"/>
+<area shape="rect" id="node13" href="$transform3d_8cpp.shtml" title="Handle 3D transformations in space groups." alt="" coords="429,160,560,189"/>
+</map>

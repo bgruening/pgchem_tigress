@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classOpenBabel_1_1OBChargeModel.shtml" title="Atomic partial charge models." alt="" coords="5,83,136,112"/>
+<area shape="rect" id="node5" href="$classOpenBabel_1_1OBDescriptor.shtml" title="Base class for molecular properties, descriptors or features." alt="" coords="160,83,275,112"/>
+<area shape="rect" id="node9" href="$classOpenBabel_1_1OBFingerprint.shtml" title="The base class for fingerprints." alt="" coords="299,83,413,112"/>
+<area shape="rect" id="node11" href="$classOpenBabel_1_1OBForceField.shtml" title="Base class for molecular mechanics force fields." alt="" coords="437,83,549,112"/>
+<area shape="rect" id="node13" href="$classOpenBabel_1_1OBFormat.shtml" title="Base class for file formats." alt="" coords="573,83,664,112"/>
+<area shape="rect" id="node19" href="$classOpenBabel_1_1OBOp.shtml" title="Operations to modify molecules before output." alt="" coords="709,83,771,112"/>
+<area shape="rect" id="node7" href="$classOpenBabel_1_1OBGroupContrib.shtml" title="Handle group contribution algorithms." alt="" coords="152,160,283,189"/>
+<area shape="rect" id="node15" href="$classOpenBabel_1_1OBMoleculeFormat.shtml" title="An OBFormat convenience subclass for conversion to/from OBMol data." alt="" coords="376,160,528,189"/>
+<area shape="rect" id="node17" href="$classOpenBabel_1_1XMLBaseFormat.shtml" title="Abstract class containing common functionality for XML formats." alt="" coords="552,160,685,189"/>
+<area shape="rect" id="node21" href="$classOpenBabel_1_1OpTransform.shtml" title="Applies molecular reactions/transforms (OBChemTsfm class) read from a datafile." alt="" coords="709,160,816,189"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$cistrans_8h.shtml" title="Store and convert cis/trans double&#45;bond stereochemistry." alt="" coords="223,83,308,112"/>
+<area shape="rect" id="node15" href="$squareplanar_8h.shtml" title="Store and convert square&#45;planar stereochemistry." alt="" coords="52,83,169,112"/>
+<area shape="rect" id="node5" href="$builder_8cpp.shtml" title="Handle OBBuilder class." alt="" coords="5,160,99,189"/>
+<area shape="rect" id="node7" href="$canon_8cpp.shtml" title="Canonical numbering of SMILES, molecules and fragments." alt="" coords="123,160,213,189"/>
+<area shape="rect" id="node9" href="$graphsym_8cpp.shtml" title="Handle and perceive graph symmtery for canonical numbering." alt="" coords="237,160,352,189"/>
+<area shape="rect" id="node11" href="$mcdlutil_8cpp.shtml" title="2D molecule coordinate generation." alt="" coords="376,160,477,189"/>
+<area shape="rect" id="node13" href="$mol_8cpp.shtml" title="Handle molecules. Implementation of OBMol." alt="" coords="501,160,576,189"/>
+</map>

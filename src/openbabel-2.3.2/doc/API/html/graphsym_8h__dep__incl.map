@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$canon_8cpp.shtml" title="Canonical numbering of SMILES, molecules and fragments." alt="" coords="5,83,96,112"/>
+<area shape="rect" id="node5" href="$graphsym_8cpp.shtml" title="Handle and perceive graph symmtery for canonical numbering." alt="" coords="120,83,235,112"/>
+<area shape="rect" id="node7" href="$isomorphism_8cpp.shtml" title="OBIsomorphismMapper class for finding isomorphisms." alt="" coords="259,83,392,112"/>
+<area shape="rect" id="node9" href="$kekulize_8cpp.shtml" title="Alternate algorithm to kekulize a molecule (OBMol::NewPerceiveKekuleBonds())." alt="" coords="416,83,520,112"/>
+<area shape="rect" id="node11" href="$align_8cpp.shtml" title="Handle 3D coordinates." alt="" coords="544,83,624,112"/>
+</map>

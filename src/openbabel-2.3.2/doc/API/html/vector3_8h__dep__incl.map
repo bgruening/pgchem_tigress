@@ -1,0 +1,29 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$atom_8h.shtml" title="Handle atoms." alt="" coords="1326,83,1395,112"/>
+<area shape="rect" id="node7" href="$mol_8h.shtml" title="Handle molecules. Declarations of OBMol, OBAtom, OBBond, OBResidue. (the main header for Open Babel)..." alt="" coords="1065,237,1123,267"/>
+<area shape="rect" id="node13" href="$grid_8h.shtml" title="Handle grids of values." alt="" coords="1534,315,1593,344"/>
+<area shape="rect" id="node20" href="$align_8h.shtml" title="Perform a least&#45;squares alignment of two molecules or two vectors of vector3 objects." alt="" coords="51,315,115,344"/>
+<area shape="rect" id="node22" href="$align_8cpp.shtml" title="Handle 3D coordinates." alt="" coords="22,392,102,421"/>
+<area shape="rect" id="node57" href="$chargemodel_8h.shtml" title="Base class for molecular partial charge models." alt="" coords="1635,160,1755,189"/>
+<area shape="rect" id="node61" href="$griddata_8h.shtml" title="OBGenericData class to connect numeric grids (e.g., orbitals, electrostatic potential) to molecules..." alt="" coords="1945,315,2033,344"/>
+<area shape="rect" id="node67" href="$matrix3x3_8h.shtml" title="Handle 3D Rotation matrix." alt="" coords="535,237,637,267"/>
+<area shape="rect" id="node81" href="$depict_8h.shtml" title="2D depiction of molecules using OBPainter." alt="" coords="1779,160,1857,189"/>
+<area shape="rect" id="node85" href="$vector3_8cpp.shtml" title="Handle 3D coordinates." alt="" coords="1931,83,2033,112"/>
+<area shape="rect" id="node5" href="$bond_8h.shtml" title="Handle bonds." alt="" coords="1189,160,1255,189"/>
+<area shape="rect" id="node11" href="$forcefield_8cpp.shtml" title="Handle OBForceField class." alt="" coords="977,469,1089,499"/>
+<area shape="rect" id="node16" href="$grid_8cpp.shtml" title="Handle grids of values." alt="" coords="1459,392,1534,421"/>
+<area shape="rect" id="node24" href="$atom_8cpp.shtml" title="Handle OBAtom class." alt="" coords="139,315,225,344"/>
+<area shape="rect" id="node26" href="$builder_8cpp.shtml" title="Handle OBBuilder class." alt="" coords="1171,315,1265,344"/>
+<area shape="rect" id="node28" href="$chargemodel_8cpp.shtml" title="Base class for molecular partial charge models." alt="" coords="1667,315,1803,344"/>
+<area shape="rect" id="node41" href="$pointgroup_8cpp.shtml" title="Brute&#45;force point group detection." alt="" coords="1289,315,1409,344"/>
+<area shape="rect" id="node47" href="$residue_8cpp.shtml" title="Handle macromolecule residues." alt="" coords="1259,237,1358,267"/>
+<area shape="rect" id="node9" href="$forcefield_8h.shtml" title="Handle forcefields." alt="" coords="1686,392,1782,421"/>
+<area shape="rect" id="node18" href="$griddata_8cpp.shtml" title="OBGenericData class to connect numeric grids (e.g., orbitals, electrostatic potential) to molecules..." alt="" coords="1558,392,1662,421"/>
+<area shape="rect" id="node30" href="$chiral_8cpp.shtml" title="Detect chiral atoms and molecules." alt="" coords="910,315,995,344"/>
+<area shape="rect" id="node33" href="$generic_8cpp.shtml" title="Handle OBGenericData classes. Custom data for atoms, bonds, etc." alt="" coords="579,315,678,344"/>
+<area shape="rect" id="node37" href="$mol_8cpp.shtml" title="Handle molecules. Implementation of OBMol." alt="" coords="702,315,777,344"/>
+<area shape="rect" id="node39" href="$obutil_8cpp.shtml" title="Various utility methods." alt="" coords="801,315,886,344"/>
+<area shape="rect" id="node43" href="$depict_8cpp.shtml" title="2D depiction of molecules using OBPainter." alt="" coords="1827,315,1921,344"/>
+<area shape="rect" id="node70" href="$transform3d_8h.shtml" title="Handle 3D transformations in space groups." alt="" coords="390,315,505,344"/>
+<area shape="rect" id="node79" href="$matrix3x3_8cpp.shtml" title="Handle 3D rotation matrix." alt="" coords="249,315,366,344"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node5" href="$classOpenBabel_1_1OBTetraNonPlanarStereo.shtml" title="Base class for handling and storing non&#45;planar stereochemistry with 4 reference atom ids..." alt="" coords="5,160,197,189"/>
+<area shape="rect" id="node9" href="$classOpenBabel_1_1OBTetraPlanarStereo.shtml" title="Base class for handling and storing planar stereochemistry with 4 reference atoms." alt="" coords="221,160,387,189"/>
+<area shape="rect" id="node2" href="$classOpenBabel_1_1OBGenericData.shtml" title="Base class for generic data." alt="" coords="139,5,267,35"/>
+<area shape="rect" id="node7" href="$classOpenBabel_1_1OBTetrahedralStereo.shtml" title="Class for handling and storing tetrahedral atom stereochemistry." alt="" coords="19,237,184,267"/>
+<area shape="rect" id="node11" href="$classOpenBabel_1_1OBCisTransStereo.shtml" title="Class for handling and storing cis/trans stereochemistry." alt="" coords="220,237,364,267"/>
+<area shape="rect" id="node13" href="$classOpenBabel_1_1OBSquarePlanarStereo.shtml" title="Class for handling and storing square planar stereochemistry." alt="" coords="388,237,564,267"/>
+</map>
