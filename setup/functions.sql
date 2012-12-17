@@ -45,12 +45,12 @@ CREATE OR REPLACE FUNCTION is_chiral(molecule)
   RETURNS boolean AS
 'libpgchem', 'pgchem_is_chiral'
   LANGUAGE 'c' IMMUTABLE STRICT;
-
+/*
 CREATE OR REPLACE FUNCTION is_nostruct(molecule)
   RETURNS boolean AS
 'libpgchem', 'pgchem_is_nostruct'
   LANGUAGE 'c' IMMUTABLE STRICT;
-
+*/
 CREATE OR REPLACE FUNCTION inchi(molecule)
   RETURNS text AS
 'libpgchem', 'pgchem_molecule_to_inchi'
@@ -73,7 +73,7 @@ CREATE OR REPLACE FUNCTION v3000(molecule)
 
 CREATE OR REPLACE FUNCTION molfile(molecule)
   RETURNS text AS
-'libpgchem', 'pgchem_molecule_to_molfile'
+'libpgchem', 'pgchem_molecule_to_V2000'
   LANGUAGE 'c' IMMUTABLE STRICT;
 
 CREATE OR REPLACE FUNCTION molformula(molecule)
@@ -200,7 +200,7 @@ CREATE OR REPLACE FUNCTION MR(molecule)
 
 CREATE OR REPLACE FUNCTION PSA(molecule)
   RETURNS double precision AS
-'libpgchem', 'pgchem_PSA'
+'libpgchem', 'pgchem_TPSA'
   LANGUAGE 'c' IMMUTABLE STRICT;
 
 CREATE OR REPLACE FUNCTION SMARTSmatch(text, molecule)
