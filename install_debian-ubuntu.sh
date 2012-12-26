@@ -48,6 +48,7 @@ sudo cp barsoi/libbarsoi.so $POSTGRESQL_LIB_DIR/
 sudo cp openbabel-2.3.2/build/lib/libinchi.so.0.4.1 $POSTGRESQL_LIB_DIR/libinchi.so.0.4.1
 sudo cp openbabel-2.3.2/build/lib/libopenbabel.so.4.0.2 $POSTGRESQL_LIB_DIR/libopenbabel.so.4.0.2
 sudo cp openbabel-2.3.2/build/lib/inchiformat.so $POSTGRESQL_LIB_DIR/inchiformat.so
+sudo cp setup/tigress/obdata/dictionary* $POSTGRESQL_LIB_DIR/openbabel/share/openbabel/2.3.2/
 cd $POSTGRESQL_LIB_DIR
 sudo ln -s libinchi.so.0.4.1 libinchi.so.0
 sudo ln -s libinchi.so.0 libinchi.so 
@@ -61,7 +62,6 @@ sudo ln -s inchiformat.so libinchiformat.so
 
 # remove unused files, only the lib dir is needed
 sudo rm $OB_INSTALL_DIR/bin/ -rf
-sudo rm $OB_INSTALL_DIR/share/ -rf
 sudo rm $OB_INSTALL_DIR/include/ -rf
 
 sudo /etc/init.d/postgresql restart
